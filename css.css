@@ -15,4 +15,20 @@
    }
    .center{
        text-align: center;
+       
+   }
+   .fixed-bottom{
+       padding-bottom: 1%;
+   }
+   .borderxd{
+    margin-left: auto;
+    margin-right: auto;
+       width: 350px;
+       
+       
+   }
+   .navbg{
+       background-color: rgba(255, 255, 255, 0.51);
+       filter: blur(4px);
+       
    }
