@@ -35,3 +35,17 @@
        filter: blur(4px);
        
    }
+   .bottom{
+       position:fixed;
+       bottom:10px;
+
+
+   }
+   .right{
+       
+       text-align: right;
+   }
+   .display-7{
+       font-weight: lighter;
+       font-size: 27px;
+   }
