@@ -1,3 +1,10 @@
+*{
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 .idk{
     padding-bottom: 15%;
 }
@@ -11,6 +18,7 @@
   padding-left: 3%;
  padding-top: 1%;
   padding-bottom: 1%;
+  overflow: hidden;
  
    }
    .lmao{
@@ -49,6 +57,10 @@
        font-weight: lighter;
        font-size: 27px;
    }
+   .display-9{
+    font-weight: lighter;
+    font-size: 20px;
+}
    .ptop{
        padding-top: 15%;
    }
@@ -56,3 +68,14 @@
        margin-left: 2%;
        width: 30px;
    }
+   .dark{
+    position: absolute;
+    right:  1%;
+    top: 34%;
+}
+.navbar{
+    
+        overflow: hidden;
+    
+    white-space: nowrap;
+}
