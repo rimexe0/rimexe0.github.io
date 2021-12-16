@@ -79,3 +79,8 @@
     
     white-space: nowrap;
 }
+.main span{
+
+    position: relative;
+    display: inline-block;
+}

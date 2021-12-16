@@ -45,10 +45,10 @@
       </nav>
     </div>
     <div class="container">
-        <h1 class="display-1 ">Here's my projects.</h1>
+        <h1 class="display-1 main">Here's my projects.</h1>
         
-        <div><span class="display-4">soon i will have some</span><img src="https://streamsentials.com/wp-content/uploads/copium-png.png" class="emote" title="COPIUM" alt=""></div>
-        <h1 class="lmao idk">im still learning and im about to have some projects ok</h1>
+        <div><span class="display-4 main">soon i will have some</span><img src="https://streamsentials.com/wp-content/uploads/copium-png.png" class="emote main" title="COPIUM" alt=""></div>
+        <h1 class="lmao idk main">im still learning and im about to have some projects ok</h1>
 
 
 
@@ -69,7 +69,19 @@
       </div>
     </nav>
 </div>
+<script src="/js/anime.js"></script>
+<script>
+  
 
+anime({
+targets: '.main',
+translateY: [50,0],
+opacity:[0,1],
+delay: anime.stagger(100),
+easing: "easeOutExpo"
+});
+</script>
+    
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
