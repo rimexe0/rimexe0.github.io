@@ -16,7 +16,7 @@
     <div class="container idk ">
     <nav class="navbar navbar-expand-lg navbar-light " id="yep">
         <div class="container-fluid">
-          <a class="navbar-brand " href="index.html">rimexe</a>
+          <a class="navbar-brand yee " href="index.html">rimexe</a>
           
           </button>
           <div class=" navbar-expand" id="navbarSupportedContent">
@@ -55,7 +55,7 @@
 
     </div>
       <div class="container center  fixed-bottom bru "><nav class="  navbar-light bg-light rounded-pill borderxd">
-        <div class="container ">
+        <div class="container footer">
           
           <a class="navbar-brand bi bi-twitter " href="https://twitter.com/xrimexe" target=”_blank> </a>
           
@@ -74,13 +74,28 @@
   <script>
     
 
-anime({
-  targets: '.main',
-  translateY: [50,0],
-  opacity:[0,1],
-  delay: anime.stagger(100),
-  easing: "easeOutExpo"
+    var tl=anime.timeline({
+  
+  duration:500,
+easing: "easeOutExpo"
 });
+tl
+.add({
+  targets:['.container .nav-link','.yee','.dark'],
+  translateY:[-200,0],
+  opacity:[0,1],
+  rotateZ:[20,0],
+  delay: anime.stagger(100)
+})
+.add({
+targets: ['.container .main','.container .footer .bi'],
+translateY: [50,0],
+opacity:[0,1],
+delay: anime.stagger(100),
+rotateZ:[-10,0]
+
+},150);
+
   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

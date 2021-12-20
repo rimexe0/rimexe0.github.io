@@ -73,13 +73,25 @@
 <script>
   
 
-anime({
-targets: '.main',
-translateY: [50,0],
-opacity:[0,1],
-delay: anime.stagger(100),
+  var tl=anime.timeline({
+  
+  duration:500,
 easing: "easeOutExpo"
 });
+tl
+.add({
+  targets:'.container .navbar',
+  translateY:[-200,0],
+  opacity:[0,1],
+
+})
+.add({
+targets: '.container .main',
+translateY: [50,0],
+opacity:[0,1],
+delay: anime.stagger(100)
+
+},250);
 </script>
     
 
