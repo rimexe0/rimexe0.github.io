@@ -1,63 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rimexe/index</title>
-    <link rel="stylesheet" href="/css/dark-mode.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="/css/css.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
-<body>
-    <div class="container idk ">
-    <nav class="navbar navbar-expand-lg navbar-light " id="yep">
-        <div class="container-fluid">
-          <a class="navbar-brand yee " href="index.html">rimexe <span class="badge bg-secondary">beta</span></a>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+    <title>/</title>
+  </head >
+  <body id="bg" onload="document.body.style.opacity='1'">
+      
+    <nav class="navbar navbar-expand navbar-light  ">
+        <div class="container-fluid  ">
+          <div class="container ">
+          <a class="navbar-brand " href="index.html" >rimexe<span class="badge bg">beta</span></a>
           
-          </button>
-          <div class=" navbar-expand" id="navbarSupportedContent">
-            <ul class="navbar-nav  mb-2 mb-xs-0">
+         
+          <div class="container" id="navbarNav ">
+            <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="projects.html">Projects</a>
+                <a class="nav-link  " aria-current="page" href="/projects.html">projects</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="photos.html">Photos</a>
+                <a class="nav-link " href="/blog.html">blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="portfolio.html">portfolio</a>
+                <a class="nav-link " href="/pictures.html">pictures</a>
               </li>
-              
-              </ul></div>
-              
-            <div class="form-check form-switch ">
-              <div class="dark">
-              <i class="bi bi-moon" class="custom-control-label" for="darkSwitch"></i>
-                <input type="checkbox" class="form-check-input" id="darkSwitch" />
-              </div>
-              </div>
-              <script src="/js/dark-mode-switch.min.js"></script>
-              
+              <li class="nav-item">
+                <a class="nav-link" href="/about.html">about</a>
+              </li>
+              <li><div class="dark form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="darkSwitch">
+                <i class="bi bi-moon"></i>
+              </div></li>
+            </ul>
           </div>
         </div>
+        </div>
       </nav>
-    </div>
-    <div class="container ">
+
+            
+    
+    <div class="container align-middle">
         
         
-        <h1 class="display-1 main">idk </h1>
-        <h1 class="display-2 main">what to put here</h1>
-        <h1 class="display-4 main">check other pages lol</h1>
-        <div><img src="" alt=""></div>
+        
+       <h1 class="display-4 main center mt">/index</h1>
+      
+        
+       
 
     </div>
-      <div class="container center  fixed-bottom bru "><nav class="  navbar-light bg-light rounded-pill borderxd">
+    <div class="container center  fixed-bottom pb-2 "><nav class="  navbar-light bg-light rounded-pill footer shadow">
         <div class="container footer">
           
-          <a class="navbar-brand bi bi-twitter " href="https://twitter.com/xrimexe" target=”_blank> </a>
+          <a class="navbar-brand bi bi-twitter " href="https://twitter.com/xrimexe" target="_blank" </a>
           
           <a class="navbar-brand bi bi-github " href="https://github.com/rimexe0" target=”_blank”> </a>
           <a class="navbar-brand bi bi-steam " href="https://steamcommunity.com/id/rimexe/" target=”_blank”> </a>
@@ -65,39 +72,18 @@
           <a class="navbar-brand bi bi-reddit " href="https://www.reddit.com/user/rimexe" target=”_blank”> </a>
           <a class="navbar-brand bi bi-twitch " href="https://www.twitch.tv/rimexee" target=”_blank”> </a>
           <a class="navbar-brand bi bi-youtube " href="https://www.youtube.com/channel/UC5rrnamtlDJJgKKPoNT_n4g" target=”_blank”> </a>
+          <button class="navbar-brand bi bi-discord notButton" onclick="copyDiscord()" > </button>
           
         </div>
       </nav>
   </div>
-  <script src="/js/js.js"></script>
-  <script src="/js/anime.js"></script>
-  <script>
-    
+  <div id="toast" class="fixed-bottom">Username Copied</div>
+ 
 
-    var tl=anime.timeline({
-  
-  duration:500,
-easing: "easeOutExpo",
-delay: 1000
-});
-tl
-.add({
-  targets:['.container .nav-link','.yee','.dark'],
-  translateY:[-200,0],
-  opacity:[0,1],
-  rotateZ:[20,0],
-  delay: anime.stagger(100)
-})
-.add({
-targets: ['.container .main','.container .footer .bi'],
-translateY: [50,0],
-opacity:[0,1],
-delay: anime.stagger(100),
-rotateZ:[-10,0]
-
-},150);
-
-  </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/dark-mode-switch.min.js"></script>
+<script src="js/bg.js"></script>
+<script src="js/anime.js"></script>
+<script src="js/copy.js"></script>
+  </body>
 </html>
