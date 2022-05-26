@@ -15,11 +15,11 @@ function generate() {
     var newColor2 = populate('#');
     var angle = Math.round( Math.random() * 360 );
     
-    var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + "03"+") no-repeat center center fixed";
+    var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + "03"+") ";
     
     document.getElementById("bg").style.background = gradient;
-    
-  document.getElementsByTagName("body").style.height=window.innerHeight;
+    document.getElementById("bg").style.backgroundSize = window.innerHeight*4+"px "+window.innerWidth*4+"px";
+  
    
     
   }

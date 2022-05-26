@@ -1,0 +1,128 @@
+:root {
+  --bg: #ffffff74;
+}
+#moon {
+  transition: all ease 0.3s;
+  position: absolute !important;
+  margin-top: 0px;
+  opacity: 1;
+}
+.deactive {
+  transition: all ease 0.3s;
+  opacity: 0 !important;
+  margin-top: 30px !important;
+  transform: rotate(90deg) !important;
+}
+#sun {
+  transition: all ease 0.3s;
+  position: absolute !important;
+  margin-top: 0px;
+  opacity: 1;
+}
+.navbarNav {
+  margin-top: 0;
+  width: max-content;
+}
+.container {
+  transition: all ease 0.3s;
+}
+body {
+  transition: all ease 0.3s;
+}
+.navbar {
+  z-index: 9;
+}
+.mt {
+  margin-top: 15%;
+}
+.bg {
+  background-color: var(--bg);
+  backdrop-filter: blur(25px);
+  border-radius: 1.8rem 0rem 1.8rem 0rem;
+  -webkit-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
+}
+.navitems{
+  opacity: 0;
+}
+.about-card {
+  margin: 1rem !important;
+  padding: 2rem !important;
+  width: 90% !important;
+  height: 350px;
+  transition: all ease 0.2s;
+  opacity: 0;
+}
+.about-card:hover {
+  box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75) !important;
+}
+
+@media only screen and (max-width: 00px) {
+  .container {
+    width: max-content !important;
+  }
+}
+#toast {
+  transition: all ease 0.3s;
+  opacity: 0;
+  background-color: var(--bg);
+  border-radius: 50px;
+  width: max-content;
+  bottom: 0px;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -1;
+  -webkit-box-shadow: 0px 0px 25px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 25px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 25px -9px rgba(0, 0, 0, 0.75);
+  padding: 5px;
+  backdrop-filter: blur(25px);
+}
+#toast.show {
+  opacity: 1;
+  transform: translateY(50px);
+}
+.footer {
+  transition: all ease 0.3s;
+  z-index: 9;
+}
+.notButton {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.notButton:focus {
+  border: none;
+}
+.notButton:focus-visible {
+  border: none;
+  outline: none;
+}
+.bi {
+  font-size: 18px;
+}
+.not-button {
+  background: none;
+  border: none;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.display-7 {
+  font-weight: lighter;
+  font-size: 27px;
+}
+.display-9 {
+  font-weight: lighter;
+  font-size: 20px;
+}
+.link {
+  color: black;
+  text-decoration: none;
+}
+.link:hover {
+  color: rgb(206, 206, 206);
+}
