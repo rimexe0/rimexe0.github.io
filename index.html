@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/bg.css" />
+    <link rel="stylesheet" href="css/bootstrap-nightshade.css">
   </head>
 
   <body id="bg">
-    <nav class="navbar navbar-expand navbar-light">
-      <div class="container-fluid fixed-top">
-        <div class="container addbg mt-5">
+    <nav class="navbar navbar-expand navbar-light mt-5">
+      <div class="container-fluid ">
+        <div class="container addbg ">
           <div class="float-end d-flex pe-2 navitems">
             <button id="dark" class="not-button me-2">
               <i id="moon" class="bi bi-moon"></i>
@@ -30,7 +31,7 @@
       </div>
     </nav>
 
-    <div class="container text-center mt">
+    <div class="container text-center mt-5">
       <div class="row text-start">
         <div class="col-lg-4 col-xs-12 mt">
           <div class="bg about-card mx-auto">
@@ -135,6 +136,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="js/darkmode.js"></script>
+    <script src="js/darkmodeBtn.js"></script>
     <script src="js/copy.js"></script>
     <script src="js/bg.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -143,20 +145,7 @@
       integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if (scroll > 50) {
-          $(".addbg").addClass("bg");
-          $(".navbarNav").css("margin-top", "-35px");
-          $(".navbarNav").css("margin-left", "55px");
-        } else {
-          $(".addbg").removeClass("bg");
-          $(".navbarNav").css("margin-top", "0");
-          $(".navbarNav").css("margin-left", "0");
-        }
-      });
-    </script>
+    
     <script>
       var load = anime({
         targets: ".about-card, .navitems",

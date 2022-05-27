@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="rimexe. Computer enjoyer." />
+    <title>rimexe -index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bg.css" />
+  </head>
+
+  <body id="bg">
+    <nav class="navbar navbar-expand navbar-light">
+      <div class="container-fluid fixed-top">
+        <div class="container addbg mt-5">
+          <div class="float-end d-flex pe-2 navitems">
+            <button id="dark" class="not-button me-2">
+              <i id="moon" class="bi bi-moon"></i>
+              <i id="sun" class="bi bi-sun deactive"></i>
+            </button>
+          </div>
+          <h1 class="display-1 center navitems">john xina</h1>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-center mt">
+      <div class="row text-start">
+        <div class="col-lg-4 col-xs-12 mt">
+          <div class="bg about-card mx-auto">
+            <h1 class="display-5">About</h1>
+            <h3 class="display-6">Emir OZTURK</h3>
+            <p class="lead">
+              Computer programming student in University of Economics.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12 mt">
+          <div class="bg about-card mx-auto">
+            <h1 class="display-5">Projects</h1>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <a
+                  class="lead link"
+                  href="https://rimexe0.github.io"
+                  title="(this site)"
+                  >rimexe0.github.io</a
+                >
+              </li>
+              <li>
+                <p class="lead">I'll add more when i got some time.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12 mt">
+          <div class="bg about-card mx-auto navbar-light">
+            <h1 class="display-5">Social</h1>
+            <ul style="list-style: none; padding-left: 0" class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-twitter"
+                  href="https://twitter.com/xrimexe"
+                  target="_blank"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-github"
+                  href="https://github.com/rimexe0"
+                  target="”_blank”"
+                >
+                  Github</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="lead bi bi-steam"
+                  href="https://steamcommunity.com/id/rimexe/"
+                  target="”_blank”"
+                >
+                  Steam</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-spotify"
+                  href="https://open.spotify.com/user/2154ymmagefyhjr35q7mjdxpy?si=af11d6dcaf5642ce"
+                  target="”_blank”"
+                >
+                  Spotify</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-reddit"
+                  href="https://www.reddit.com/user/rimexe"
+                  target="”_blank”"
+                >
+                  Reddit</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-twitch"
+                  href="https://www.twitch.tv/rimexee"
+                  target="”_blank”"
+                >
+                  Twitch</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="lead bi bi-discord notButton"
+                  id="Discord"
+                  style="cursor: pointer"
+                >
+                  Discord</a
+                >
+              </li>
+              <div id="toast" class="bg fixed-bottom">Username Copied</div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/darkmodeBtn.js"></script>
+    <script src="js/copy.js"></script>
+    <script src="js/bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll > 50) {
+          $(".addbg").addClass("bg");
+          $(".navbarNav").css("margin-top", "-35px");
+          $(".navbarNav").css("margin-left", "55px");
+        } else {
+          $(".addbg").removeClass("bg");
+          $(".navbarNav").css("margin-top", "0");
+          $(".navbarNav").css("margin-left", "0");
+        }
+      });
+    </script>
+    <script>
+      var load = anime({
+        targets: ".about-card, .navitems",
+
+        opacity: [0, 1],
+
+        translateY: [50, 0],
+        duration: 1200,
+        delay: 1000,
+        autoplay: false,
+        delay: anime.stagger(100),
+      });
+      document.getElementsByTagName("body")[0].onload = (load.play(), 1000);
+    </script>
+  </body>
+</html>
