@@ -16,7 +16,7 @@ function generate() {
     var angle = Math.round( Math.random() * 360 );
     
     var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + "03"+") ";
-    
+
     document.getElementById("bg").style.background = gradient;
     document.getElementById("bg").style.backgroundSize = window.innerHeight*4+"px "+window.innerWidth*4+"px";
   
