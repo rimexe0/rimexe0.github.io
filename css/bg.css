@@ -1,6 +1,8 @@
 #bg {
 	background-size: 500% 500%;
-	animation: gradient 4s ease infinite;
+	-webkit-animation: gradient 21s ease infinite;
+    -moz-animation: gradient 21s ease infinite;
+    animation: gradient 21s ease infinite;
 }
 
 @keyframes gradient {

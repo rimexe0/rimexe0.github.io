@@ -13,7 +13,7 @@ function generate() {
     
     var newColor1 = populate('#');
     var newColor2 = populate('#');
-    var angle = Math.round( Math.random() * 360 );
+    var angle =45;
     
     var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + "03"+") ";
 
@@ -23,5 +23,4 @@ function generate() {
    
     
   }
-  
-  document.onload = generate();
+  document.getElementsByTagName("body")[0].onload = (generate(), 6000);

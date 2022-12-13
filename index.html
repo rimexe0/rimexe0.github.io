@@ -20,6 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/text-gradient.css">
   </head>
 
   <body id="bg">
@@ -32,7 +33,11 @@
               <i id="sun" class="bi bi-sun active bg"></i>
             </button>
           </div>
-          <a class="display-1 center navitems">rimexe</a>
+          <h1 class="logo center">
+            <span class="text-wrapper">
+              <span class="display-1 center navitems letters">rimexe</span>
+            </span>
+          </h1>
         </div>
       </div>
     </nav>
@@ -45,7 +50,14 @@
             <a class="display-7">Emir OZTURK</a>
             <br>
             <a class="lead">
-              Computer programming student in University of Economics.
+              a person who loves Tech.
+            </a> <br>
+            <a class="lead">
+              also Computer programming student in University of Economics.
+            </a>
+            <br>
+            <a class="lead link cv-link" href="cv_13122022.pdf">
+              for cv
             </a>
           </div>
         </div>
@@ -58,12 +70,28 @@
                   class="lead link"
                   href="https://rimexe0.github.io"
                   title="(this site)"
-                  >rimexe0.github.io</a
+                  >rime.live (this site)</a
                 >
               </li>
               <li>
-                <a class="lead">I'll add more when i got some time.</a>
               </li>
+              <li>
+                <a
+                  class="lead link"
+                  href="http://rime.live/phone-of-the-year/"
+                  title="(this site)"
+                  >phone of the year (homework)</a
+                >
+              </li>
+              <li>
+                <a
+                  class="lead link"
+                  href="http://odevsite.great-site.net/"
+                  title="(this site)"
+                  >GameAge (homework)</a
+                >
+              </li>
+              
             </ul>
           </div>
         </div>
@@ -140,6 +168,7 @@
         </div>
       </div>
     </div>
+    
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -168,29 +197,23 @@
 
         opacity: [0, 1],
 
-        translateY: [50, 0],
+        translateY: [100, 0],
+        translateZ: [100, 0],
+        translateY: [100, 0],
         duration: 1200,
-        delay: 1000,
+        delay: 500,
         autoplay: false,
-        delay: anime.stagger(100),
+        delay: anime.stagger(50),
       });
-      var leave = anime({
-        targets: ".about-card, .navitems",
+      
 
-        opacity: [1, 0],
-
-        autoplay: false,
-        delay: anime.stagger(100),
-        changeComplete: function (anim) {
-          window.location.href = "portfolio.html";
-        },
-      });
-
-      document.getElementsByTagName("body")[0].onload = (load.play(), 1000);
+      document.getElementsByTagName("body")[0].onload = (load.play(), 500);
 
       $("#yeah").click(function () {
         leave.play();
       });
     </script>
+    <script src="js/logoanimate.js"></script>
+    <script src="js/cv-text-animate.js"></script>
   </body>
 </html>
