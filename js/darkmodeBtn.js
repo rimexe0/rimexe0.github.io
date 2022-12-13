@@ -5,4 +5,3 @@ document.querySelector("#dark").onclick = function(e){
         moon.classList.toggle("active");
 darkmode.toggleDarkMode();
 }
-

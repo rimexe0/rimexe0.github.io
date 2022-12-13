@@ -35,7 +35,7 @@
           </div>
           <h1 class="logo center">
             <span class="text-wrapper">
-              <span class="display-1 center letters">rimexe</span>
+              <span class="display-1 center navitems letters">rimexe</span>
             </span>
           </h1>
         </div>
@@ -80,7 +80,7 @@
                   class="lead link"
                   href="http://rime.live/phone-of-the-year/"
                   title="(this site)"
-                  >phone of the year (term project)</a
+                  >phone of the year (homework)</a
                 >
               </li>
               <li>
@@ -88,7 +88,7 @@
                   class="lead link"
                   href="http://odevsite.great-site.net/"
                   title="(this site)"
-                  >GameAge (term project)</a
+                  >GameAge (homework)</a
                 >
               </li>
               
@@ -190,17 +190,29 @@
       integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
       crossorigin="anonymous"
     ></script>
-    <script>
-      var darkmodeanim = anime({
-        targets:".navitems",
-        translateY: ["-30em", 0],duration:1000,
-        opacity:[0,1],
-        delay:200
-    });
-    document.getElementsByTagName("body")[0].onload = (darkmodeanim.play(), 500);
-    </script>
 
-    <script src="js/about-card-animate.js"></script>
+    <script>
+      var load = anime({
+        targets: ".about-card, .navitems",
+
+        opacity: [0, 1],
+
+        translateY: [100, 0],
+        translateZ: [100, 0],
+        translateY: [100, 0],
+        duration: 1200,
+        delay: 500,
+        autoplay: false,
+        delay: anime.stagger(50),
+      });
+      
+
+      document.getElementsByTagName("body")[0].onload = (load.play(), 500);
+
+      $("#yeah").click(function () {
+        leave.play();
+      });
+    </script>
     <script src="js/logoanimate.js"></script>
     <script src="js/cv-text-animate.js"></script>
   </body>
