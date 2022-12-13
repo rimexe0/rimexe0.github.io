@@ -10,9 +10,7 @@
 -o-animation: rainbow 5s ease infinite;
   animation: rainbow 5s ease infinite;
   text-decoration: underline !important;
-
-    
-}
+  text-shadow: 1px 1px 18px rgba(0, 0, 0, 1);}
 
 
 

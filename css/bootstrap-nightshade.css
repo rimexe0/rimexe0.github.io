@@ -11365,7 +11365,8 @@ html.dark mark, html.dark .mark {
 html.dark a {
   color: var(--bs-body-color-alt);
 }
-
+html.dark .cv-link{
+  text-shadow: 1px 1px 18px rgba(255, 255, 255, 1);}
 html.dark a:not([href]):not([class]), html.dark a:not([href]):not([class]):hover {
   color: inherit;
 }
