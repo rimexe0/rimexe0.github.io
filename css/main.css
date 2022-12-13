@@ -45,13 +45,11 @@ p{
   margin-top: 0;
   width: max-content;
 }
-.container {
-  transition: all ease 0.3s;
-}
+
 body {
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
   font-family: 'Open Sans', sans-serif !important;
+  transition: all ease 0.3s;
+
 }
 .navbar {
   z-index: 9;
@@ -66,7 +64,6 @@ body {
   -webkit-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
-  transition: all ease 0.3s;
 
 }
 .navitems {
@@ -74,26 +71,31 @@ body {
 }
 .logo .text-wrapper{
   
+  
   display: inline-block;
  
   margin-left: auto;
   margin-right: auto;
   
 }
+.logo .letter{
+  opacity: 0;
+}
 .letter{
   text-shadow: 1px 1px 11px rgba(150, 150, 150, 1);
+}
+.letters{
+  /* opacity: 0; */
 }
 .about-card {
   margin: 1rem !important;
   padding: 2rem !important;
   width: 90% !important;
   height: 350px;
-  transition: all ease 0.2s;
   opacity: 0;
+  backdrop-filter: blur(100px);
 }
-.about-card:hover {
-  box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75) !important;
-}
+
 
 @media only screen and (max-width: 00px) {
   .container {

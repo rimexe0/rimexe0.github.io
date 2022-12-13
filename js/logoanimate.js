@@ -6,11 +6,11 @@ anime.timeline({})
   .add({
     targets: '.logo .letter',
     translateY: ["1.1em", 0],
-    translateX: ["1.55em", 0],
+    translateX: ["3em", 0],
     opacity: [0,1],
     translateZ: 0,
     rotateZ: [45, 0],
+    scale:[1.3,1],
     duration: 1000,
-    easing: "easeOutExpo",
-    delay: (el, i) => 50 * i
+    easing: 'spring(1, 80, 10, 0)',    delay: (el, i) => 50 * i
   });
