@@ -17,6 +17,7 @@ html {
   box-sizing: border-box;
   position: relative;
   transition: all ease 0.3s;
+  
 }
 body {
   z-index: 1;
