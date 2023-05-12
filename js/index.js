@@ -67,6 +67,7 @@ create_bg_color();
 
 
 
+
 // navbar items
 add_navbar_item(
   "Spotify",
@@ -92,7 +93,7 @@ add_card(
   "about-card",
   "Emir Ozturk",
   "#",
-  "IEU Computer programming student in turkey.","","_blank"
+  "IEU Computer programming student in Turkey.","","_blank"
 );
 
 add_card("about-card","for cv","/cv.pdf","click here","cv-link","_blank");
@@ -102,13 +103,13 @@ add_card(
   "projects-card",
   "rimexe0.github.io",
   "https://github.com/rimexe0/rimexe0.github.io",
-  "this website","","_blank"
+  "This website","","_blank"
 );
 add_card(
   "projects-card",
   "gameAge",
   "https://github.com/rimexe0/gameAge",
-  "steam inspired website for midterm made by mostly me","","_blank"
+  "Steam inspired website for midterm made by mostly me","","_blank"
 );
 add_card(
   "projects-card",
@@ -120,7 +121,7 @@ add_card(
   "projects-card",
   "gameshop",
   "https://github.com/rimexe0/gameshop",
-  "steam inspired game store app for my midterm","","_blank"
+  "Steam inspired game store app for my midterm","","_blank"
 );
 add_card(
   "projects-card",
@@ -134,6 +135,6 @@ add_card(
   "blog-card",
   "work in progress",
   "/mdread.html",
-  "this part is going to be the blog part where i post about stuff i make. But its not ready yet.","","_self"
+  "Shis part is going to be the blog part where i post about stuff i make. But its not ready yet.","","_self"
 );
 
