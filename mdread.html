@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/pico.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <title>Blog</title>
 </head>
 
 <body>
@@ -17,12 +17,12 @@
     <div id="header">
 
         <div class="navbar" id="navbar">
-            <h1>rimexe</h1>
+            <a href="" onclick="history.back()"><h1>rimexe</h1></a>
 
         </div>
     </div>
     <div id="main" class="container">
-        <button id="back-button" class="footer-buttons active" onclick="history.back()"><i class="bi bi-arrow-left active"></i></button>
+        <button id="back-button" class="page-buttons active" onclick="history.back()"><i class="bi bi-arrow-left active"></i></button>
         <md-block src="blog/wip.md"></md-block>
 
         
@@ -30,11 +30,11 @@
     
 
     <div id="footer-buttons">
-        <button id="dark-mode-button" class="footer-buttons active">
+        <button id="dark-mode-button" class="page-buttons active">
             <i id="moon" class="bi bi-moon-fill active"></i>
             <i id="sun" class="bi bi-sun-fill"></i>
         </button>
-        <button id="randomize-color" class="footer-buttons active">
+        <button id="randomize-color" class="page-buttons active">
             <i id="palette" class="bi bi-palette active"></i>
         </button>
 
