@@ -135,6 +135,6 @@ add_card(
   "blog-card",
   "work in progress",
   "/mdread.html",
-  "Shis part is going to be the blog part where i post about stuff i make. But its not ready yet.","","_self"
+  "This part is going to be the blog part where i post about stuff i make. But its not ready yet.","","_self"
 );
 
