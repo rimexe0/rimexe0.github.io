@@ -1,6 +1,6 @@
 # work in progress
 
-this is the part where i should tell you about projects i've done and what i'm working on but it's not ready yet.
+when i become a banger dev this is the place where im gonna show the usefull stuff to the world
 
 
 ## atleast it's kinda working
