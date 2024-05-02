@@ -160,18 +160,17 @@ a {
   background-color: var(--bg);
   color: var(--contrast);
   border: 5px solid var(--border);
- transition: all ease 0.3s;
+  transition: all ease 0.3s;
   overflow: hidden;
 }
-.page-buttons:focus{
+.page-buttons:focus {
   box-shadow: none;
 }
-.page-buttons:hover{
+.page-buttons:hover {
   transform: scale(1.1);
-   -webkit-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 19px -11px rgba(0, 0, 0, 0.75);
-  
 }
 
 #sun,
@@ -189,14 +188,14 @@ a {
 #sun {
   margin-top: 50px;
 }
-#moon{
+#moon {
   margin-top: -50px;
 }
 #randomize-color {
   margin-top: 100px;
 }
-#scroll-down{
- transition: all ease 0.3s;
+#scroll-down {
+  transition: all ease 0.3s;
   position: absolute !important;
   bottom: 0px;
   border: none;
@@ -207,9 +206,8 @@ a {
   right: 0;
   z-index: 35;
 }
-#scroll-down i{
-    font-size: 1em;
-
+#scroll-down i {
+  font-size: 1em;
 }
 
 .active {
@@ -244,7 +242,7 @@ a {
   text-decoration: underline !important;
   /* text-shadow: 1px 1px 18px rgba(0, 0, 0, 1); */
 }
-
+/* 
 @-webkit-keyframes rainbow {
   0% {
     background-position: 0% 82%;
@@ -255,8 +253,8 @@ a {
   100% {
     background-position: 0% 82%;
   }
-}
-@-moz-keyframes rainbow {
+} */
+/* @-moz-keyframes rainbow {
   0% {
     background-position: 0% 82%;
   }
@@ -266,8 +264,8 @@ a {
   100% {
     background-position: 0% 82%;
   }
-}
-@-o-keyframes rainbow {
+} */
+/* @-o-keyframes rainbow {
   0% {
     background-position: 0% 82%;
   }
@@ -277,8 +275,8 @@ a {
   100% {
     background-position: 0% 82%;
   }
-}
-@keyframes rainbow {
+} */
+/* @keyframes rainbow {
   0% {
     background-position: 0% 82%;
   }
@@ -288,4 +286,7 @@ a {
   100% {
     background-position: 0% 82%;
   }
+} */
+.opacityzero {
+  opacity: 0;
 }
