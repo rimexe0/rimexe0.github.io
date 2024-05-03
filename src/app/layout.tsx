@@ -11,8 +11,8 @@ const fontSans = FontSans({
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "rimexe",
-  description: "rimexe rimexe",
+  title: "rimexe - portfolio",
+  description: "Fullstack webdeveloper",
 };
 
 export default function RootLayout({
