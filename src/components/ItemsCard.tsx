@@ -26,8 +26,8 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
   return (
     <div className="my-2  ">
       <div className="mx-1">
-        <h4 className="text-xl">{title}</h4>
-        <p>{desc}</p>
+        <h4 className="text-xl text-zinc-300">{title}</h4>
+        <p className="text-zinc-400">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
     </div>
