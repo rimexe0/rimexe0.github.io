@@ -9,5 +9,5 @@ export default function Background() {
   //       easing: "easeInOutExpo",
   //     });
   //   }, []);
-  return <div className="" id="noise"></div>;
+  return <div className="opacity-[0.25]" id="noise"></div>;
 }
