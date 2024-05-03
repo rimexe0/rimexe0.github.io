@@ -27,11 +27,11 @@ export default function Home() {
               <div className="flex">
                 <ItemsCardTech
                   title="php"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#2d6296] bg-[#2d6296] text-white rounded-none"
                 />
                 <ItemsCardTech
                   title="Laravel"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#f9322c] bg-[#f9322c] text-white rounded-none"
                 />
               </div>
               <div>
@@ -50,7 +50,7 @@ export default function Home() {
               <div className="flex">
                 <ItemsCardTech
                   title="javascript"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#efd81d] bg-[#efd81d] text-black rounded-none"
                 />
               </div>
               <div>
@@ -71,7 +71,7 @@ variety of games in steam like ui
               <div className="flex">
                 <ItemsCardTech
                   title="php"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#2d6296] bg-[#2d6296] text-white rounded-none"
                 />
               </div>
               <div className="flex">
@@ -95,7 +95,7 @@ variety of games in steam like ui
               <div className="flex">
                 <ItemsCardTech
                   title="Nextjs"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-white bg-white text-black rounded-none"
                 />
               </div>
               <div className="flex">
@@ -118,11 +118,11 @@ variety of games in steam like ui
               <div className="flex">
                 <ItemsCardTech
                   title="coffee"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#6c4c35] bg-[#6c4c35] text-white rounded-none"
                 />
                 <ItemsCardTech
                   title="lofi"
-                  className="border-[1.5px] border-white text-white rounded-none"
+                  className="border-[1.5px] border-[#b7719c] bg-[#b7719c] text-white rounded-none"
                 />
               </div>
               <div className="flex">

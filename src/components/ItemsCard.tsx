@@ -4,12 +4,12 @@ const ItemsCard = ({ title, children, number }: any) => {
     <div
       className="
       
-     min-h-[15rem]
+     min-h-[5rem]
      w-[20rem]
      border-primary
      border-2
      rounded-[1rem]
-     py-3
+     pt-3
      flex
      flex-col
      bg-slate-400/10
