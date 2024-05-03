@@ -8,7 +8,26 @@ import {
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
+import { easeInOut, motion } from "framer-motion";
 export default function Home() {
+  const variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.5,
+        easeInOut,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+  };
+  const item = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
   const mainTextRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (mainTextRef.current && mainTextRef.current.textContent) {
@@ -37,18 +56,28 @@ export default function Home() {
       <div id="logopart" className="mx-auto w-3 pt-4">
         <h1 className="logo flex justify-center">
           <span className="text-wrapper  ">
-            <span ref={mainTextRef} className="center letters flex text-6xl">
+            <span
+              ref={mainTextRef}
+              className="center letters flex text-8xl mb-10"
+            >
               rimexe
             </span>
           </span>
         </h1>
       </div>
       <div className="flex justify-evenly">
-        <div id="projetcspart">
-          <ItemsCard title="Projects">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={{ duration: 0.5 }}
+          id="projetcspart"
+        >
+          <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
               title="Mise Restaurant"
               desc="restaurant management and accounting program that has a nice ui"
+              number={1}
             >
               <div className="flex">
                 <ItemsCardTech
@@ -71,6 +100,7 @@ export default function Home() {
             <ItemsCardContent
               title="oasis scraper"
               desc="Simple program that gets oasis weekly schedule and sends it to google calendar"
+              number={2}
             >
               <div className="flex">
                 <ItemsCardTech
@@ -91,6 +121,7 @@ export default function Home() {
               desc="vanilla php site where it shows
 variety of games in steam like ui
 "
+              number={3}
             >
               <div className="flex">
                 <ItemsCardTech
@@ -114,6 +145,7 @@ variety of games in steam like ui
             <ItemsCardContent
               title="rimexe.tech"
               desc="literally this site itself "
+              number={4}
             >
               <div className="flex">
                 <ItemsCardTech
@@ -130,12 +162,19 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </div>
-        <div id="aboutpart">
-          <ItemsCard title="About">
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={{ duration: 0.5, delay: 0.5 * 33 }}
+          id="aboutpart"
+        >
+          <ItemsCard title="About" number={2}>
             <ItemsCardContent
               title="Emir Ozturk"
               desc="Fullstack web developer graduated from IEU"
+              number={1}
             >
               <div className="flex">
                 <ItemsCardTech
@@ -166,7 +205,7 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

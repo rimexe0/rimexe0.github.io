@@ -1,7 +1,25 @@
-import { motion } from "framer-motion";
+import { delay, easeInOut, motion, stagger } from "framer-motion";
 import React from "react";
-
-const ItemsCard = ({ title, children }: any) => {
+const variants = {
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 1,
+      easeInOut,
+      delay: i * 0.1,
+    },
+  }),
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+};
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
+const ItemsCard = ({ title, children, number }: any) => {
   return (
     <div
       className="
@@ -21,19 +39,33 @@ const ItemsCard = ({ title, children }: any) => {
      "
     >
       <h1 className="text-3xl px-3 font-semibold  ">{title}</h1>
-      <div className="flex flex-col">{children}</div>
+      <motion.div
+        custom={number}
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        className="flex flex-col"
+      >
+        {children}
+      </motion.div>
     </div>
   );
 };
-export const ItemsCardContent = ({ title, desc, children }: any) => {
+export const ItemsCardContent = ({ title, desc, children, number }: any) => {
   return (
-    <div className="my-2  ">
+    <motion.div
+      custom={number}
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      className="my-2  "
+    >
       <div className="mx-1">
         <h4 className="text-xl">{title}</h4>
         <p>{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export const ItemsCardLink = ({ title, link, className }: any) => {
