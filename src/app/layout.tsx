@@ -28,9 +28,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <Background />
         <SpeedInsights />
         {/* <Navbar /> */}
-        <Background />
         <div className="z-10 relative w-[85%] mx-auto">{children}</div>
       </body>
     </html>

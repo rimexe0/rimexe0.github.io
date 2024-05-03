@@ -65,13 +65,14 @@ export default function Home() {
           </span>
         </h1>
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly flex-wrap ">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={variants}
           transition={{ duration: 0.5 }}
           id="projetcspart"
+          className="mb-10"
         >
           <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
@@ -169,6 +170,7 @@ variety of games in steam like ui
           variants={variants}
           transition={{ duration: 0.5, delay: 0.5 * 33 }}
           id="aboutpart"
+          className="mb-10"
         >
           <ItemsCard title="About" number={2}>
             <ItemsCardContent

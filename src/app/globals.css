@@ -41,7 +41,7 @@
     width: 100%;
     min-height: 100dvh;
     height: fit-content;
-    position: absolute;
+    position: fixed;
   }
   .dark {
     --background: 222.2 84% 4.9%;

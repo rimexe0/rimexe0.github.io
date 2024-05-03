@@ -32,7 +32,6 @@ const ItemsCard = ({ title, children, number }: any) => {
      py-3
      flex
      flex-col
-     backdrop-blur-3xl
      bg-slate-400/10
      transition-all
      hover:shadow-2xl
