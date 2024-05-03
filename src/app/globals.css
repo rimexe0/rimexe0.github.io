@@ -89,7 +89,7 @@
   margin-right: auto;
 }
 .logo .letter {
-  opacity: 0;
+  /* opacity: 0; */
 }
 .letter {
   text-shadow: 1px 1px 11px rgba(150, 150, 150, 1);

@@ -1,79 +1,23 @@
 "use client";
-import anime from "animejs";
-import { useEffect, useRef } from "react";
-import Projects from "./projects";
 import ItemsCard from "@/components/ItemsCard";
+import Logo from "@/components/logo";
 import {
   ItemsCardContent,
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
-import { easeInOut, motion } from "framer-motion";
 export default function Home() {
-  const variants = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.5,
-        easeInOut,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-  };
-  const item = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-  const mainTextRef = useRef<HTMLHeadingElement>(null);
-  useEffect(() => {
-    if (mainTextRef.current && mainTextRef.current.textContent) {
-      mainTextRef.current.innerHTML = mainTextRef.current.textContent.replace(
-        /\S/g,
-        "<span class='letter '>$&</span>"
-      );
-    }
-
-    console.log("hihi");
-    anime({
-      targets: ".logo .letter",
-      translateY: ["1.1em", 0],
-      translateX: ["3em", 0],
-      opacity: [0, 1],
-      translateZ: 0,
-      rotateZ: [45, 0],
-      scale: [1.3, 1],
-      duration: 1000,
-      easing: "spring(1, 80, 10, 0)",
-      delay: (el, i) => 50 * i,
-    });
-  }, []);
   return (
     <div className="min-h-screen ">
       <div id="logopart" className="mx-auto w-3 pt-4">
         <h1 className="logo flex justify-center">
           <span className="text-wrapper  ">
-            <span
-              ref={mainTextRef}
-              className="center letters flex text-8xl mb-10"
-            >
-              rimexe
-            </span>
+            <Logo />
           </span>
         </h1>
       </div>
       <div className="flex justify-evenly flex-wrap ">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ duration: 0.5 }}
-          id="projetcspart"
-          className="mb-10"
-        >
+        <div id="projetcspart" className="mb-10">
           <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
               title="Mise Restaurant"
@@ -163,15 +107,8 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ duration: 0.5, delay: 0.5 * 33 }}
-          id="aboutpart"
-          className="mb-10"
-        >
+        </div>
+        <div id="aboutpart" className="mb-10">
           <ItemsCard title="About" number={2}>
             <ItemsCardContent
               title="Emir Ozturk"
@@ -207,7 +144,7 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
