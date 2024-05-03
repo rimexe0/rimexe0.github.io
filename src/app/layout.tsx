@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import Background from "./background";
 import Navbar from "./navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <SpeedInsights />
         {/* <Navbar /> */}
         <Background />
         <div className="z-10 relative w-[85%] mx-auto">{children}</div>
