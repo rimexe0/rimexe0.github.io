@@ -11,7 +11,7 @@ const fontSans = FontSans({
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "rimexe - portfolio",
+  title: "rime - portfolio",
   description: "Fullstack webdeveloper",
 };
 
