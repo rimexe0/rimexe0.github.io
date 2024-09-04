@@ -39,25 +39,27 @@ export default function Background() {
     };
   }, [setX, setY]);
   return (
-    <>
+    <div className="">
       <div className="opacity-[0.50] absolute" id="noise"></div>
-      <div className="w-full -rotate-12 -translate-x-44 -translate-y-24 ">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ease: "easeOut", duration: 1 }}
-          className={"w-[130%] flex flex-wrap absolute mix-blend-multiply "}
-          style={{ transform: `translate(${x}px, ${y}px)` }}
-          ref={bg1}
-        ></motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="w-[130%] flex flex-wrap absolute translate-y-[100px] mix-blend-multiply"
-          style={{ transform: `translate(${-x}px, ${-y + 100}px)` }}
-          ref={bg2}
-        ></motion.div>
+      <div className="h-[130dvh] w-[130%] overflow-hidden absolute">
+        <div className="w-full -rotate-12 -translate-x-56 -translate-y-36  relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className={"w-[130%] flex flex-wrap absolute mix-blend-multiply "}
+            style={{ transform: `translate(${x}px, ${y}px)` }}
+            ref={bg1}
+          ></motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="w-[130%] flex flex-wrap absolute translate-y-[100px] mix-blend-multiply"
+            style={{ transform: `translate(${-x}px, ${-y + 100}px)` }}
+            ref={bg2}
+          ></motion.div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
