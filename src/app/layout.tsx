@@ -15,6 +15,18 @@ export const metadata: Metadata = {
   title: "rime - portfolio",
   description: "Fullstack webdeveloper",
   creator: "Emir Ozturk",
+  openGraph: {
+    title: "rime - web developer",
+    images: [
+      {
+        url: "https://rime.cyou/og.png",
+        width: 1920,
+        height: 1080,
+        alt: "rime - web developer",
+      },
+    ],
+    description: "tech guy developing",
+  },
 };
 
 export default function RootLayout({
