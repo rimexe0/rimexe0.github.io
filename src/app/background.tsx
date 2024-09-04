@@ -39,19 +39,25 @@ export default function Background() {
     };
   }, [setX, setY]);
   return (
-    <div className="opacity-[0.25]" id="noise">
-      <div className="w-full -rotate-12 -translate-x-44 -translate-y-24">
+    <>
+      <div className="opacity-[0.50] absolute" id="noise"></div>
+      <div className="w-full -rotate-12 -translate-x-44 -translate-y-24 ">
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 1 }}
           className={"w-[130%] flex flex-wrap absolute mix-blend-multiply "}
           style={{ transform: `translate(${x}px, ${y}px)` }}
           ref={bg1}
         ></motion.div>
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           className="w-[130%] flex flex-wrap absolute translate-y-[100px] mix-blend-multiply"
           style={{ transform: `translate(${-x}px, ${-y + 100}px)` }}
           ref={bg2}
-        ></div>
+        ></motion.div>
       </div>
-    </div>
+    </>
   );
 }

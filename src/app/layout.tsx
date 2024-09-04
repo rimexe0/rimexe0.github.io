@@ -9,6 +9,7 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 import { cn } from "@/lib/utils";
+import { generateColor } from "@/components/helpers/helping";
 
 export const metadata: Metadata = {
   title: "rime - portfolio",
@@ -21,13 +22,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const color = generateColor();
   return (
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen h-fit  bg-background font-sans antialiased dark",
+          `min-h-screen h-fit   font-sans antialiased dark`,
           fontSans.variable
         )}
+        style={{ backgroundColor: color }}
       >
         <Background />
         <SpeedInsights />

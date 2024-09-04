@@ -6,6 +6,7 @@ import {
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
+import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="min-h-screen ">
@@ -17,7 +18,12 @@ export default function Home() {
         </h1>
       </div>
       <div className="flex justify-evenly flex-wrap ">
-        <div id="projetcspart" className="mb-10">
+        <motion.div
+          id="projetcspart"
+          className="mb-10"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
               title="Mise Restaurant"
@@ -107,8 +113,13 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </div>
-        <div id="aboutpart" className="mb-10">
+        </motion.div>
+        <motion.div
+          id="aboutpart"
+          className="mb-10"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <ItemsCard title="About" number={2}>
             <ItemsCardContent
               title="Emir Ozturk"
@@ -144,7 +155,7 @@ variety of games in steam like ui
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
