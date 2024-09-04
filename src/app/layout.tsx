@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "rimexe - portfolio",
   description: "Fullstack webdeveloper",
+  creator: "Emir Ozturk",
 };
 
 export default function RootLayout({

@@ -15,6 +15,7 @@ const ItemsCard = ({ title, children, number }: any) => {
      bg-slate-400/10
      transition-all
      hover:shadow-2xl
+     backdrop-blur
      "
     >
       <h1 className="text-3xl px-3 font-semibold  ">{title}</h1>
