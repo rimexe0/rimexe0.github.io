@@ -21,7 +21,7 @@ export default function Background() {
     const widthAmount = Math.ceil(window.innerWidth / 100);
     const heightAmount = Math.ceil(window.innerHeight / 100);
     console.log(widthAmount, heightAmount);
-    for (let i = 0; i < (widthAmount + heightAmount) * 4; i++) {
+    for (let i = 0; i < (widthAmount + heightAmount) * 5; i++) {
       bg1.current?.appendChild(logo());
       bg2.current?.appendChild(logo());
     }
@@ -41,8 +41,8 @@ export default function Background() {
   return (
     <div className="">
       <div className="opacity-[0.50] absolute" id="noise"></div>
-      <div className="h-[130dvh] w-[130%] overflow-hidden absolute">
-        <div className="w-full -rotate-12 -translate-x-56 -translate-y-36  relative">
+      <div className="h-[110dvh] w-[120%] overflow-hidden absolute">
+        <div className="w-full -rotate-12 -translate-x-56 -translate-y-28  relative">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
