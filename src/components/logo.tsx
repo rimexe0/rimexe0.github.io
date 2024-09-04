@@ -37,8 +37,8 @@ const Logo = () => {
         <span className="letter ">i</span>
         <span className="letter ">m</span>
         <span className="letter ">e</span>
-        <span className="letter ">x</span>
-        <span className="letter ">e</span>
+        {/* <span className="letter ">x</span> */}
+        {/* <span className="letter ">e</span> */}
       </span>
     </div>
   );
