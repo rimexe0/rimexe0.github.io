@@ -21,7 +21,7 @@ export default function Background() {
     const widthAmount = Math.ceil(window.innerWidth / 100);
     const heightAmount = Math.ceil(window.innerHeight / 100);
     console.log(widthAmount, heightAmount);
-    for (let i = 0; i < (widthAmount + heightAmount) * 3; i++) {
+    for (let i = 0; i < (widthAmount + heightAmount) * 4; i++) {
       bg1.current?.appendChild(logo());
       bg2.current?.appendChild(logo());
     }
