@@ -150,7 +150,7 @@ variety of games in steam like ui
                 <ItemsCardLink
                   title="portfolio"
                   link="/cv.pdf"
-                  className="bg-[#728900] border-[1.5px] border-[#728900] text-white"
+                  className="bg-[#728900] border-[1.5px] border-[#728900] text-white "
                 />
               </div>
             </ItemsCardContent>

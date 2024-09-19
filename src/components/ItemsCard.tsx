@@ -1,5 +1,6 @@
 import React from "react";
 import { generateColor } from "./helpers/helping";
+import { motion } from "framer-motion";
 const ItemsCard = ({ title, children, number }: any) => {
   return (
     <div
@@ -28,13 +29,21 @@ const ItemsCard = ({ title, children, number }: any) => {
 };
 export const ItemsCardContent = ({ title, desc, children, number }: any) => {
   return (
-    <div className="my-2  text-black">
+    <motion.div
+      className="my-2  text-black border-0 "
+      whileHover={{
+        scale: 1.01,
+        boxShadow: "10px 10px 0px 0px rgba(0,0,0,0.75)",
+        border: "2px dashed black",
+        transition: { duration: 0.3 },
+      }}
+    >
       <div className="mx-1 text-black">
         <h4 className="text-xl text-black">{title}</h4>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export const ItemsCardLink = ({ title, link, className }: any) => {

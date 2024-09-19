@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@million/lint": "^1.0.0-rc.84",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/speed-insights": "^1.0.10",
     "animejs": "^3.2.2",
