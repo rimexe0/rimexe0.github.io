@@ -26,88 +26,126 @@ export default function Home() {
         >
           <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
-              title="Mise Restaurant"
-              desc="restaurant management and accounting program that has a nice ui"
+              title="Meva"
+              desc="Local-first media library for collecting, tagging, and searching media."
               number={1}
             >
               <div className="flex">
                 <ItemsCardTech
-                  title="php"
-                  className="border-[1.5px] border-[#2d6296] bg-[#2d6296] text-white rounded-none"
+                  title="Rust"
+                  className="border-[1.5px] border-[#dea584] bg-[#dea584] text-black rounded-none"
                 />
                 <ItemsCardTech
-                  title="Laravel"
-                  className="border-[1.5px] border-[#f9322c] bg-[#f9322c] text-white rounded-none"
+                  title="React"
+                  className="border-[1.5px] border-[#61dafb] bg-[#61dafb] text-black rounded-none"
                 />
-              </div>
-              <div>
-                <ItemsCardLink
-                  title="coming soon"
-                  link="link"
-                  className="bg-black border-[1.5px] border-black text-white"
+                <ItemsCardTech
+                  title="Electron"
+                  className="border-[1.5px] border-[#47848f] bg-[#47848f] text-white rounded-none"
                 />
               </div>
             </ItemsCardContent>
             <ItemsCardContent
-              title="oasis scraper"
-              desc="Simple program that gets oasis weekly schedule and sends it to google calendar"
+              title="DuckedUpChat"
+              desc="Self-hosted chat app for communities, with web, desktop, and Android clients."
               number={2}
             >
               <div className="flex">
                 <ItemsCardTech
-                  title="javascript"
-                  className="border-[1.5px] border-[#efd81d] bg-[#efd81d] text-black rounded-none"
+                  title="Rust"
+                  className="border-[1.5px] border-[#dea584] bg-[#dea584] text-black rounded-none"
+                />
+                <ItemsCardTech
+                  title="React"
+                  className="border-[1.5px] border-[#61dafb] bg-[#61dafb] text-black rounded-none"
+                />
+                <ItemsCardTech
+                  title="Tauri"
+                  className="border-[1.5px] border-[#ffc131] bg-[#ffc131] text-black rounded-none"
                 />
               </div>
               <div>
                 <ItemsCardLink
-                  title="github"
-                  link="https://github.com/rimexe0/oasis-scraper"
+                  title="preview"
+                  link="https://ducked-up-chat-desktop.vercel.app"
                   className="bg-black border-[1.5px] border-black text-white"
                 />
               </div>
             </ItemsCardContent>
             <ItemsCardContent
-              title="GameAge"
-              desc="vanilla php site where it shows
-variety of games in steam like ui
-"
+              title="not."
+              desc="Fast local Markdown scratchpad for macOS with a global shortcut."
               number={3}
             >
               <div className="flex">
                 <ItemsCardTech
-                  title="php"
-                  className="border-[1.5px] border-[#2d6296] bg-[#2d6296] text-white rounded-none"
+                  title="Rust"
+                  className="border-[1.5px] border-[#dea584] bg-[#dea584] text-black rounded-none"
+                />
+                <ItemsCardTech
+                  title="Tauri"
+                  className="border-[1.5px] border-[#ffc131] bg-[#ffc131] text-black rounded-none"
                 />
               </div>
               <div className="flex">
                 <ItemsCardLink
                   title="github"
-                  link="https://github.com/rimexe0/gameAge"
-                  className="bg-black border-[1.5px] border-black text-white"
-                />
-                <ItemsCardLink
-                  title="website"
-                  link="http://odevsite.great-site.net"
+                  link="https://github.com/rimexe0/not"
                   className="bg-black border-[1.5px] border-black text-white"
                 />
               </div>
             </ItemsCardContent>
             <ItemsCardContent
-              title="rimexe.tech"
-              desc="literally this site itself "
+              title="Githubers"
+              desc="Self-hosted GitHub Projects watcher with agent runs and local-model summaries."
               number={4}
             >
               <div className="flex">
                 <ItemsCardTech
-                  title="Nextjs"
+                  title="Next.js"
                   className="border-[1.5px] border-white bg-white text-black rounded-none"
+                />
+                <ItemsCardTech
+                  title="TypeScript"
+                  className="border-[1.5px] border-[#3178c6] bg-[#3178c6] text-white rounded-none"
                 />
               </div>
               <div className="flex">
                 <ItemsCardLink
                   title="github"
-                  link="https://github.com/rimexe0/rimexe0.github.io"
+                  link="https://github.com/rimexe0/Githubers"
+                  className="bg-black border-[1.5px] border-black text-white"
+                />
+              </div>
+            </ItemsCardContent>
+            <ItemsCardContent
+              title="Wooter Hall Keypad"
+              desc="Web Serial configurator and firmware for a two-key Hall-effect keypad."
+              number={5}
+            >
+              <div className="flex">
+                <ItemsCardTech
+                  title="React"
+                  className="border-[1.5px] border-[#61dafb] bg-[#61dafb] text-black rounded-none"
+                />
+                <ItemsCardTech
+                  title="Web Serial"
+                  className="border-[1.5px] border-[#4285f4] bg-[#4285f4] text-white rounded-none"
+                />
+                <ItemsCardTech
+                  title="CircuitPython"
+                  className="border-[1.5px] border-[#00a6a6] bg-[#00a6a6] text-white rounded-none"
+                />
+              </div>
+              <div className="flex">
+                <ItemsCardLink
+                  title="github"
+                  link="https://github.com/rimexe0/wooter"
+                  className="bg-black border-[1.5px] border-black text-white"
+                />
+                <ItemsCardLink
+                  title="website"
+                  link="https://wooter.rime.cyou"
                   className="bg-black border-[1.5px] border-black text-white"
                 />
               </div>
