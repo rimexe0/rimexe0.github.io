@@ -39,25 +39,25 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
       }}
     >
       <div className="mx-1 text-black">
-        <h4 className="text-xl text-black">{title}</h4>
+        <h4 className="text-xl text-black text-nowrap">{title}</h4>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
     </motion.div>
   );
 };
-export const ItemsCardLink = ({ title, link, className }: any) => {
+export const ItemsCardLink = ({ title, link, className, rainbow = false }: any) => {
   return (
     <div>
       <a
         className={
-          "p-1  rounded-tl-md rounded-br-md mx-0.5 transition-shadow hover:shadow-md " +
+          "p-1  rounded-tl-md rounded-br-md mx-0.5 transition-shadow hover:shadow-md text-xs " +
           className
         }
         target="_blank"
         href={link}
       >
-        {title}
+        {rainbow ? <span className="rainbow-scroll-right">{title}</span> : title}
       </a>
     </div>
   );
@@ -67,7 +67,7 @@ export const ItemsCardTech = ({ title, className }: any) => {
     <div>
       <span
         className={
-          "box-content p-1 rounded-tr-md rounded-bl-md  mx-0.5 " + className
+          "box-content p-1 rounded-tr-md rounded-bl-md  mx-0.5 text-xs " + className
         }
       >
         {title}

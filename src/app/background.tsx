@@ -40,24 +40,11 @@ export default function Background() {
     const update = (event: MouseEvent) => {
       setX((event.clientX - window.innerWidth / 2) / 50);
       setY((event.clientY - window.innerHeight / 2) / 50);
-      targetScrollRate.current = 0;
-
-      if (pauseTimer.current) {
-        window.clearTimeout(pauseTimer.current);
-      }
-
-      pauseTimer.current = window.setTimeout(
-        () => (targetScrollRate.current = 1),
-        160
-      );
     };
 
     window.addEventListener("mousemove", update);
     return () => {
       window.removeEventListener("mousemove", update);
-      if (pauseTimer.current) {
-        window.clearTimeout(pauseTimer.current);
-      }
     };
   }, []);
 

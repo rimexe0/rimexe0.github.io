@@ -95,3 +95,39 @@
 .letter {
   text-shadow: 1px 1px 11px rgba(150, 150, 150, 1);
 }
+
+.rainbow-scroll-right {
+  display: inline-block;
+  background-image: linear-gradient(
+    90deg,
+    #ff4d4d,
+    #ffb84d,
+    #fff34d,
+    #5cff6b,
+    #4dc3ff,
+    #8a5cff,
+    #ff4dbe,
+    #ff4d4d
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow-scroll-right 2.4s linear infinite;
+}
+
+@keyframes rainbow-scroll-right {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 300% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rainbow-scroll-right {
+    animation: none;
+  }
+}

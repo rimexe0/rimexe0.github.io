@@ -44,6 +44,15 @@ export default function Home() {
                   className="border-[1.5px] border-[#47848f] bg-[#47848f] text-white rounded-none"
                 />
               </div>
+
+              <div>
+                <ItemsCardLink
+                  title="Coming soon(hopefully)"
+                  link=""
+                  className="bg-black border-[1.5px] border-black text-white"
+                  rainbow
+                />
+              </div>
             </ItemsCardContent>
             <ItemsCardContent
               title="DuckedUpChat"
@@ -132,10 +141,6 @@ export default function Home() {
                   title="Web Serial"
                   className="border-[1.5px] border-[#4285f4] bg-[#4285f4] text-white rounded-none"
                 />
-                <ItemsCardTech
-                  title="CircuitPython"
-                  className="border-[1.5px] border-[#00a6a6] bg-[#00a6a6] text-white rounded-none"
-                />
               </div>
               <div className="flex">
                 <ItemsCardLink
@@ -163,6 +168,7 @@ export default function Home() {
               title="Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir"
               desc="Webdevmaxxer. graduated from IEU"
               number={1}
+              className="text-white"
             >
               <div className="flex">
                 <ItemsCardTech
