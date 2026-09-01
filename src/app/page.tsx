@@ -122,8 +122,8 @@ variety of games in steam like ui
         >
           <ItemsCard title="About" number={2}>
             <ItemsCardContent
-              title="Emir Ozturk"
-              desc="Fullstack web developer graduated from IEU"
+              title="Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir"
+              desc="Webdevmaxxer. graduated from IEU"
               number={1}
             >
               <div className="flex">
