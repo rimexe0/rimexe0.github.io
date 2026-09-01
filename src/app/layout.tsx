@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { generateColor } from "@/components/helpers/helping";
 
 export const metadata: Metadata = {
-  title: "rime - portfolio",
+  title: "rime",
   description: "Fullstack webdeveloper",
   creator: "Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir",
   openGraph: {

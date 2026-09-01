@@ -193,7 +193,7 @@ export default function Home() {
                 />
                 <ItemsCardLink
                   title="portfolio"
-                  link="/cv.pdf"
+                  link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   className="bg-[#728900] border-[1.5px] border-[#728900] text-white "
                 />
               </div>
