@@ -8,6 +8,7 @@ const ItemsCard = ({ title, children, number }: any) => {
     <div
       className="
       
+     card-shell
      min-h-[5rem]
      w-[20rem]
      border-black
@@ -40,7 +41,7 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
         transition: { duration: 0.3 },
       }}
     >
-      <div className="mx-1 text-black">
+      <div className="card-entry-content mx-1 text-black">
         <h4 className="text-xl text-black text-nowrap">{title}</h4>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
