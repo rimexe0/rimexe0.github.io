@@ -174,7 +174,14 @@
 }
 .logo .letter {
   opacity: 0;
+  transform: translate(3em, 1.1em) rotate(45deg) scale(1.3);
 }
+
+.homepage-entry {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
 .letter {
   text-shadow: 1px 1px 11px rgba(150, 150, 150, 1);
 }

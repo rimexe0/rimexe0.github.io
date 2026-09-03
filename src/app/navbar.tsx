@@ -1,5 +1,5 @@
 "use client";
-import { animate, spring, stagger } from "animejs";
+import { animate, stagger } from "motion";
 import { useEffect } from "react";
 
 function NavLink({
@@ -23,19 +23,28 @@ function NavLink({
 
 export default function Navbar() {
   useEffect(() => {
-    const animation = animate(".nav-link", {
-      y: { from: "1.1em", to: 0 },
-      x: { from: "3em", to: 0 },
-      opacity: { from: 0, to: 1 },
-      rotate: { from: 31, to: 0 },
-      scale: { from: 1.3, to: 1 },
-      duration: 1200,
-      ease: spring({ mass: 1, stiffness: 80, damping: 10, velocity: 0 }),
-      delay: stagger(50),
-    });
+    const links = document.querySelectorAll<HTMLElement>(".nav-link");
+    const animation = animate(
+      links,
+      {
+        y: ["1.1em", 0],
+        x: ["3em", 0],
+        opacity: [0, 1],
+        rotate: [31, 0],
+        scale: [1.3, 1],
+      },
+      {
+        type: "spring",
+        mass: 1,
+        stiffness: 80,
+        damping: 10,
+        velocity: 0,
+        delay: stagger(0.05),
+      }
+    );
 
     return () => {
-      animation.revert();
+      animation.stop();
     };
   }, []);
   return (

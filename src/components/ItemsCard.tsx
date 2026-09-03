@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { generateColor } from "./helpers/helping";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 const ItemsCard = ({ title, children, number }: any) => {
   return (
     <div

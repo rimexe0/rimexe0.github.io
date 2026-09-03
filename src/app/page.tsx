@@ -1,15 +1,15 @@
-"use client";
 import ItemsCard from "@/components/ItemsCard";
+import IntroMotion from "./intro-motion";
 import Logo from "@/components/logo";
 import {
   ItemsCardContent,
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
-import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="min-h-screen ">
+      <IntroMotion />
       <div id="logopart" className="mx-auto w-3 pt-4">
         <h1 className="logo flex justify-center">
           <span className="text-wrapper  ">
@@ -18,11 +18,9 @@ export default function Home() {
         </h1>
       </div>
       <div className="flex justify-evenly flex-wrap ">
-        <motion.div
+        <div
           id="projetcspart"
-          className="mb-10"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="homepage-entry mb-10"
         >
           <ItemsCard title="Projects" number={1}>
             <ItemsCardContent
@@ -156,13 +154,8 @@ export default function Home() {
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </motion.div>
-        <motion.div
-          id="aboutpart"
-          className="mb-10"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        </div>
+        <div id="aboutpart" className="homepage-entry mb-10">
           <ItemsCard title="About" number={2}>
             <ItemsCardContent
               title="Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir"
@@ -199,7 +192,7 @@ export default function Home() {
               </div>
             </ItemsCardContent>
           </ItemsCard>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

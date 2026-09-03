@@ -1,5 +1,5 @@
 "use client";
-import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, type JSX } from "react";
 import { useRef } from "react";
