@@ -1,6 +1,7 @@
 import ItemsCard from "@/components/ItemsCard";
 import IntroMotion from "./intro-motion";
 import Logo from "@/components/logo";
+import FpsMeter from "./fps-meter";
 import {
   ItemsCardContent,
   ItemsCardLink,
@@ -16,6 +17,9 @@ export default function Home() {
             <Logo />
           </span>
         </h1>
+        <div className="flex justify-center">
+          <FpsMeter />
+        </div>
       </div>
       <div className="flex justify-evenly flex-wrap ">
         <div
