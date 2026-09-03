@@ -1,38 +1,42 @@
 "use client";
-import anime from "animejs";
+import { animate, spring, stagger } from "animejs";
 import { useEffect } from "react";
+
+function NavLink({
+  name,
+  active = false,
+}: {
+  name: string;
+  active: boolean;
+}) {
+  return (
+    <a
+      href={"#" + name}
+      className={
+        "opacity-0 nav-link text-3xl mx-3 " + (active ? " font-bold" : "")
+      }
+    >
+      {name}
+    </a>
+  );
+}
+
 export default function Navbar() {
-  function NavLink({
-    name,
-    active = false,
-  }: {
-    name: string;
-    active: boolean;
-  }) {
-    return (
-      <a
-        href={"#" + name}
-        className={
-          "opacity-0 nav-link text-3xl mx-3 " + (active ? " font-bold" : "")
-        }
-      >
-        {name}
-      </a>
-    );
-  }
   useEffect(() => {
-    const animetion = anime({
-      targets: ".nav-link",
-      translateY: ["1.1em", 0],
-      translateX: ["3em", 0],
-      opacity: [0, 1],
-      translateZ: 0,
-      rotateZ: [31, 0],
-      scale: [1.3, 1],
+    const animation = animate(".nav-link", {
+      y: { from: "1.1em", to: 0 },
+      x: { from: "3em", to: 0 },
+      opacity: { from: 0, to: 1 },
+      rotate: { from: 31, to: 0 },
+      scale: { from: 1.3, to: 1 },
       duration: 1200,
-      easing: "spring(1, 80, 10, 0)",
-      delay: (el, i) => 50 * i,
+      ease: spring({ mass: 1, stiffness: 80, damping: 10, velocity: 0 }),
+      delay: stagger(50),
     });
+
+    return () => {
+      animation.revert();
+    };
   }, []);
   return (
     <div className=" absolute left-10  z-30">

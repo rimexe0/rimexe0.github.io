@@ -81,9 +81,11 @@ export default function Projects() {
     return (
       <CarouselItem className="">
         <div className="eh"></div>
-        <img
+        <Image
           src={img}
           alt={alt}
+          width={1280}
+          height={720}
           className="w-full rounded-lg shadow-md border-2 border-slate-300"
         />
       </CarouselItem>

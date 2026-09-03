@@ -34,7 +34,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const color = generateColor();
+  const color = generateColor("pink-background");
   return (
     <html lang="en">
       <body

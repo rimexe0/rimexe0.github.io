@@ -1,7 +1,7 @@
 "use client";
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, type JSX } from "react";
 import { useRef } from "react";
 
 export default function Background() {
@@ -28,12 +28,17 @@ export default function Background() {
   };
 
   useEffect(() => {
-    const widthAmount = Math.ceil(window.innerWidth / 100);
-    const heightAmount = Math.ceil(window.innerHeight / 100);
-    const logoCount = (widthAmount + heightAmount) * 5;
-    setImgRow(
-      Array.from({ length: logoCount }, (_, index) => <Logo key={index} />)
-    );
+    const frame = requestAnimationFrame(() => {
+      const widthAmount = Math.ceil(window.innerWidth / 100);
+      const heightAmount = Math.ceil(window.innerHeight / 100);
+      const logoCount = (widthAmount + heightAmount) * 5;
+
+      setImgRow(
+        Array.from({ length: logoCount }, (_, index) => <Logo key={index} />)
+      );
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -74,7 +79,10 @@ export default function Background() {
     <div className="">
       <div className="opacity-[0.50] absolute" id="noise"></div>
       <div className="h-[100dvh] w-[100%] overflow-hidden absolute pointer-events-none">
-        <div className="w-full -rotate-12 -translate-x-56 -translate-y-28  relative">
+        <div
+          className="w-full relative"
+          style={{ transform: "translate(-224px, -112px) rotate(-12deg)" }}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -91,7 +99,7 @@ export default function Background() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-[130%] absolute translate-y-[100px] "
+            className="w-[130%] absolute"
             style={{ transform: `translate(${-x}px, ${-y + 100}px)` }}
           >
             <motion.div

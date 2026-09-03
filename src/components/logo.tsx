@@ -1,37 +1,37 @@
 "use client";
-import anime from "animejs";
-import React, { useEffect, useRef } from "react";
-import { generateColor } from "./helpers/helping";
+import { animate, spring, stagger } from "animejs";
+import { useEffect, useRef } from "react";
 
 const Logo = () => {
-  const mainTextRef = useRef<HTMLHeadingElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if (mainTextRef.current && mainTextRef.current.textContent) {
-      mainTextRef.current.innerHTML = mainTextRef.current.textContent.replace(
-        /\S/g,
-        "<span class='letter '>$&</span>"
-      );
+    const letters = rootRef.current?.querySelectorAll(".letter");
+
+    if (!letters?.length) {
+      return;
     }
 
-    console.log("hihi");
-    anime({
-      targets: ".logo .letter",
-      translateY: ["1.1em", 0],
-      translateX: ["3em", 0],
-      opacity: [0, 1],
-      translateZ: 0,
-      rotateZ: [45, 0],
-      scale: [1.3, 1],
+    const animation = animate(letters, {
+      y: { from: "1.1em", to: 0 },
+      x: { from: "3em", to: 0 },
+      opacity: { from: 0, to: 1 },
+      rotate: { from: 45, to: 0 },
+      scale: { from: 1.3, to: 1 },
       duration: 1000,
-      easing: "spring(1, 80, 10, 0)",
-      delay: (el, i) => 50 * i,
+      ease: spring({ mass: 1, stiffness: 80, damping: 10, velocity: 0 }),
+      delay: stagger(50),
     });
+
+    return () => {
+      animation.revert();
+    };
   }, []);
+
   return (
-    <div>
+    <div ref={rootRef}>
       <div className="relative  mb-10">
         <span
-          // ref={mainTextRef}
           className="center letters flex text-8xl  transition-all text-black absolute"
         >
           <span className="letter ">r</span>
@@ -42,7 +42,6 @@ const Logo = () => {
           {/* <span className="letter ">e</span> */}
         </span>
         <span
-          // ref={mainTextRef}
           className="center letters flex text-8xl transition-all -translate-x-1 -translate-y-1"
         >
           <span className="letter ">r</span>

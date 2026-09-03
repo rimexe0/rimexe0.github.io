@@ -18,7 +18,7 @@ const ItemsCard = ({ title, children, number }: any) => {
      backdrop-blur
      "
       style={{
-        background: generateColor(),
+        background: generateColor(title),
         boxShadow: "10px 10px 0px 0px rgba(0,0,0,0.75)",
       }}
     >
