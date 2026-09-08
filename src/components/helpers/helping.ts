@@ -1,4 +1,9 @@
-export function generateColor(seed = "default") {
+export function generateColor(seed?: string) {
+  if (seed === undefined) {
+    const hue = Math.floor(Math.random() * 360);
+    return `hsl(${hue}, 100%, 90%, 60%)`;
+  }
+
   let hash = 0;
 
   for (const character of seed) {

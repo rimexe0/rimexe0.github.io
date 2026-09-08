@@ -3,6 +3,7 @@ import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useRef } from "react";
+import { generateColor } from "@/components/helpers/helping";
 
 const FIRST_LAYER_WIDTH = 140;
 const SECOND_LAYER_WIDTH = 130;
@@ -81,6 +82,15 @@ export default function Background() {
   const wrapDistance = useRef(112);
   const scrollRate = useRef(1);
   const targetScrollRate = useRef(1);
+
+  useEffect(() => {
+    const previousColor = document.body.style.backgroundColor;
+    document.body.style.backgroundColor = generateColor();
+
+    return () => {
+      document.body.style.backgroundColor = previousColor;
+    };
+  }, []);
 
   useEffect(() => {
     let frame: number | undefined;
