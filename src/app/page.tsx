@@ -13,7 +13,8 @@ export default function Home() {
       <IntroMotion />
       <div id="logopart" className="mx-auto w-3 pt-4">
         <h1 className="logo flex justify-center">
-          <span className="text-wrapper  ">
+          <span className="sr-only">Emir Öztürk (rime), fullstack web developer</span>
+          <span className="text-wrapper  " aria-hidden="true">
             <Logo />
           </span>
         </h1>
@@ -162,8 +163,8 @@ export default function Home() {
         <div id="aboutpart" className="homepage-entry mb-10">
           <ItemsCard title="About" number={2}>
             <ItemsCardContent
-              title="Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir Emir"
-              desc="Webdevmaxxer. graduated from IEU"
+              title="Emir Öztürk"
+              desc="Fullstack web developer from Türkiye. I build Rust, React and Tauri apps: a self-hosted chat platform, local-first desktop tools, and firmware plus a web configurator for my own Hall-effect keypad. Graduated from IEU."
               number={1}
               className="text-white"
             >

@@ -25,7 +25,7 @@ const ItemsCard = ({ title, children, number }: any) => {
         boxShadow: "10px 10px 0px 0px rgba(0,0,0,0.75)",
       }}
     >
-      <h1 className="text-3xl px-3 font-semibold  text-black">{title}</h1>
+      <h2 className="text-3xl px-3 font-semibold  text-black">{title}</h2>
       <div className="flex flex-col">{children}</div>
     </div>
   );
