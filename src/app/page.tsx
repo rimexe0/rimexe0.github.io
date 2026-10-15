@@ -7,7 +7,9 @@ import {
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
+import { getAllPosts } from "@/lib/blog";
 export default function Home() {
+  const latestPosts = getAllPosts().slice(0, 3);
   return (
     <div className="min-h-screen ">
       <IntroMotion />
@@ -157,6 +159,45 @@ export default function Home() {
                 />
               </div>
             </ItemsCardContent>
+          </ItemsCard>
+        </div>
+        <div id="blogpart" className="homepage-entry mb-10">
+          <ItemsCard title="Lab log" number={3}>
+            {latestPosts.length ? (
+              latestPosts.map((post, i) => (
+                <ItemsCardContent key={post.slug} title={post.title} desc={post.summary} number={i + 1} wrap>
+                  <div className="flex">
+                    {post.tags.slice(0, 2).map((tag) => (
+                      <ItemsCardTech
+                        key={tag}
+                        title={tag}
+                        className="border-[1.5px] border-black bg-white text-black rounded-none"
+                      />
+                    ))}
+                  </div>
+                  <div className="flex">
+                    <ItemsCardLink
+                      title="read"
+                      link={`/blog/${post.slug}`}
+                      newTab={false}
+                      className="bg-black border-[1.5px] border-black text-white"
+                    />
+                  </div>
+                </ItemsCardContent>
+              ))
+            ) : (
+              <ItemsCardContent title="Soon" desc="Write-ups of weird hardware and software things I build." number={1}>
+                <div />
+              </ItemsCardContent>
+            )}
+            <div className="flex justify-end px-1 pb-3">
+              <ItemsCardLink
+                title="all posts →"
+                link="/blog"
+                newTab={false}
+                className="bg-black border-[1.5px] border-black text-white"
+              />
+            </div>
           </ItemsCard>
         </div>
         <div id="aboutpart" className="homepage-entry mb-10">

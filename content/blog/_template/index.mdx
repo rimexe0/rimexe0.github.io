@@ -1,0 +1,42 @@
+---
+# Copy this folder to content/blog/<your-slug>/ (folders starting with "_" are ignored).
+# The folder name becomes the URL: content/blog/trackball/ -> rime.cyou/blog/trackball
+title: "Trackball from two dead mice"
+date: 2026-10-15
+summary: "One sentence. Shows up on the card, in link previews and in RSS."
+tags: [hardware, cursed]
+cover: ./cover.jpg      # optional, any file in this folder
+repo: https://github.com/rimexe0/something   # optional
+draft: true             # drafts show in `npm run dev`, hidden in production
+---
+
+Put photos, videos and gifs in this same folder and use relative paths.
+
+## What I wanted
+
+## What I did
+
+![the inside, before anything caught fire](./inside.jpg)
+
+## What broke
+
+<Note kind="fail">The first encoder was wired backwards, so it scrolled the wrong way.</Note>
+
+## What I learned
+
+---
+
+Things you can use besides plain markdown:
+
+<Figure src="./board.jpg" caption="captioned photo" />
+<Gallery images={["./1.jpg", "./2.jpg", "./3.jpg"]} />
+<Video src="./spin.mp4" caption="muted loop, smaller than a gif" />
+<YouTube id="VIDEO_ID" />
+<Note>plain note</Note>  <Note kind="warn">careful</Note>  <Note kind="fail">didn't work</Note>
+
+```cpp title="main.cpp" {3}
+void loop() {
+  int delta = encoder.read();
+  light.setBrightness(delta); // highlighted line
+}
+```

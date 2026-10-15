@@ -30,7 +30,7 @@ const ItemsCard = ({ title, children, number }: any) => {
     </div>
   );
 };
-export const ItemsCardContent = ({ title, desc, children, number }: any) => {
+export const ItemsCardContent = ({ title, desc, children, number, wrap = false }: any) => {
   return (
     <motion.div
       className="my-2  text-black border-0 "
@@ -42,14 +42,14 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
       }}
     >
       <div className="card-entry-content mx-1 text-black">
-        <h4 className="text-xl text-black text-nowrap">{title}</h4>
+        <h4 className={"text-xl text-black " + (wrap ? "leading-tight" : "text-nowrap")}>{title}</h4>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
     </motion.div>
   );
 };
-export const ItemsCardLink = ({ title, link, className, rainbow = false }: any) => {
+export const ItemsCardLink = ({ title, link, className, rainbow = false, newTab = true }: any) => {
   return (
     <div>
       <a
@@ -57,7 +57,7 @@ export const ItemsCardLink = ({ title, link, className, rainbow = false }: any) 
           "p-1  rounded-tl-md rounded-br-md mx-0.5 transition-shadow hover:shadow-md text-xs " +
           className
         }
-        target="_blank"
+        target={newTab ? "_blank" : undefined}
         href={link}
       >
         {rainbow ? <span className="rainbow-scroll-right">{title}</span> : title}

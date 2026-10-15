@@ -1,0 +1,102 @@
+---
+title: "Controlling my Gigabyte monitor from macOS by taking apart its Windows app"
+date: 2026-10-15
+summary: "Gigabyte's OSD Sidekick only runs on Windows. So I unpacked it, decompiled it, disassembled its USB library, and wrote a native menu bar app instead."
+tags: [reverse-engineering, macos, swift, hardware]
+repo: https://github.com/rimexe0/megabyte
+draft: true
+---
+
+{/* TODO: one or two lines in your own words about why. Annoyance level, how long you put up with it, etc. */}
+
+The Gigabyte M28U has a companion app called **OSD Sidekick** that changes every monitor setting from the
+desktop instead of the joystick behind the panel. It's Windows only. I'm on a Mac.
+
+So I made **[Megabyte](https://github.com/rimexe0/megabyte)**: a native macOS menu bar app that does what OSD
+Sidekick does, over the same USB cable, and can also *read* every current value back.
+
+{/* TODO: screenshot of the popover. Drop it in this folder and uncomment:
+<Figure src="./popover.png" caption="the menu bar popover with the live monitor preview" />
+*/}
+
+## Step 1: getting the app out of its installer
+
+The download is a cabinet with an InstallShield `setup.exe` inside. The interesting part is wrapped in an
+obfuscated *InstallShield setup stream*: each file is XOR-encoded with a key derived from **its own file name**,
+then zlib-compressed.
+
+A small Python script (`re/tools/isx.py`) undoes that, which gives an MSI, and the MSI's `Data1.cab` finally holds
+the actual app.
+
+## Step 2: reading the app
+
+`OSDSidekick.exe` turned out to be a .NET (WPF) program, which is the best possible news: it decompiles back to
+readable C# with ILSpy. That gave me every setting it reads and writes, the exact byte values it sends, and
+which monitor models get which options.
+
+The M28U identifies itself as `GBT2800` and has no special-case code, so it gets the default feature set.
+
+## Step 3: the native part
+
+The C# side doesn't talk to the monitor directly. It hands raw bytes to `RtHIDLib.dll`, a native Realtek
+library. Disassembling its `HID_i2cwrite` and `HID_i2cread` gave me the exact USB report layout.
+
+It turns out the monitor contains a **Realtek USB HID bridge** (`0bda:1100`) that forwards I²C to the monitor's
+scaler. And the messages going through it are plain **DDC/CI**, the same standard every monitor speaks over
+the video cable. Brightness is the standard VESA code `0x10`, and Gigabyte's own features live under `E0 xx`.
+
+A write is one 192-byte HID output report, with the DDC message at byte 64:
+
+```text title="select the FPS picture mode"
+report:  40 c6 00 00 00 00 <len> 00 | 6e 00 80 | … | 51 85 03 e0 2c 00 01 <chk>
+         └ i2c write header          └ addr     └ DDC: set Gigabyte VCP E0 2C = 1
+```
+
+Reading is send-wait-fetch: send a DDC "Get VCP", then a report starting `40 d6 51`, wait about 100 ms, and
+pull the answer with a HID `GetInputReport`. Asking for brightness came back as:
+
+```text
+6e 88 02 00 10 00 00 64 00 1e   →  max 0x64 (100), current 0x1e (30)
+```
+
+and `E0 5E` returns the model string, `M28U`.
+
+<Note>
+The checksum is the XOR of the preceding payload bytes, but **without** the usual `0x6E` seed. That's how
+Sidekick computes it, and the monitor accepts it.
+</Note>
+
+## Step 4: poking every setting
+
+Before writing any UI, a small Swift probe (`re/tools/m28u.swift`) changed every setting, read it back, and
+restored it. The on-screen features (crosshair, dashboard, game timer, counter, PiP) I confirmed by looking at
+the monitor.
+
+Some things I learned the hard way:
+
+- Writes sent back-to-back sometimes get **dropped**, and reads sometimes time out. Waiting ~0.5 s and
+  verifying fixes it, so the app reads every change back and retries.
+- The on-screen **dashboard** takes values as `E0 1A..21 <n/10000> <n%10000/100> <n%100> <neg>`. Megabyte
+  feeds it this Mac's CPU and GPU load.
+- Crosshair styles 1–3 read back correctly but looked identical on the M28U.
+- The joystick can be emulated too (`E0 5F`–`63`). Center then down powers the monitor off.
+
+<Note kind="warn">
+Firmware and EDID flashing (`RFlash.dll`, `E0 D0 …`) are deliberately left out. A bad write there can brick
+the monitor, and I like my monitor.
+</Note>
+
+## Step 5: the app
+
+SwiftUI menu bar app with no dependencies: IOKit HID for the USB link, a single serial queue for all monitor
+traffic, and an observable store that streams slider changes and verifies them. The popover draws a live
+preview of the monitor that follows the real brightness, color temperature and picture mode.
+
+The full command table, value ranges and test results are in
+[`re/PROTOCOL.md`](https://github.com/rimexe0/megabyte/blob/main/re/PROTOCOL.md). Other Gigabyte models
+(M27Q, M27U, M32U, M32Q…) use the same Realtek protocol in Sidekick, so a lot of it probably works there too.
+
+Standing on: [gbmonctl](https://github.com/kelvie/gbmonctl) and
+[gigabyte-m32u-ddcctl](https://github.com/ayufan-research/gigabyte-m32u-ddcctl), which did the M32U side first.
+
+{/* TODO: closing line. What's next, or what you'd do differently. */}
