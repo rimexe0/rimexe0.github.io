@@ -12,10 +12,10 @@ import { cn } from "@/lib/utils";
 import { generateColor } from "@/components/helpers/helping";
 
 const siteUrl = "https://rime.cyou";
-const fullName = "Emir Öztürk";
-const siteTitle = `${fullName} (rime) | Fullstack Web Developer`;
+const fullName = "Emir OZTURK";
+const siteTitle = `${fullName} (rime) | Software Developer`;
 const siteDescription =
-  "Emir Öztürk (rime / rimexe0) is a fullstack web developer from Türkiye building Rust, React and Tauri apps: DuckedUpChat, Meva, not., Githubers and the Wooter Hall-effect keypad.";
+  "Emir OZTURK (rime / rimexe0) is a software developer from Türkiye building Rust, React and Tauri apps: DuckedUpChat, Meva, not., Githubers and the Wooter Hall-effect keypad.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 675,
-        alt: "rime - Emir Öztürk, fullstack web developer",
+        alt: "rime - Emir OZTURK, software developer",
       },
     ],
   },
@@ -54,7 +54,7 @@ const personJsonLd = {
   name: fullName,
   alternateName: ["rime", "rimexe", "rimexe0"],
   url: siteUrl,
-  jobTitle: "Fullstack Web Developer",
+  jobTitle: "Software Developer",
   description: siteDescription,
   address: { "@type": "PostalAddress", addressCountry: "TR" },
   alumniOf: {
