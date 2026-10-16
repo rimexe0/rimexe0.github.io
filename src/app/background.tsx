@@ -1,6 +1,7 @@
 "use client";
 import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import { useRef } from "react";
 import { generateColor } from "@/components/helpers/helping";
@@ -9,6 +10,9 @@ const FIRST_LAYER_WIDTH = 140;
 const SECOND_LAYER_WIDTH = 130;
 const LAYER_HEIGHT = 140;
 const EXTRA_TRACK_ITEMS = 2;
+// Logos added past both ends of every row, so rows always end off-screen and
+// logos slide out of view instead of vanishing at the row end.
+const EDGE_ITEMS = 2;
 const LOGO_MIN_SIZE = 100;
 const LOGO_MAX_SIZE = 150;
 const LOGO_SIZE_RATIO = 0.14;
@@ -45,7 +49,7 @@ function getBackgroundMetrics(width: number, height: number): BackgroundMetrics 
     marginLeft,
     marginBottom,
     pitch,
-    logoCount: columns * rows,
+    logoCount: (columns + EDGE_ITEMS * 2) * rows,
   };
 }
 
@@ -73,15 +77,22 @@ function BackgroundLogo({
 }
 
 export default function Background() {
+  // Fade and stop the logos on blog pages so the text is easier to read.
+  const calm = usePathname().startsWith("/blog");
   const [x, setX] = React.useState(0);
   const [y, setY] = React.useState(0);
   const [metrics, setMetrics] = React.useState<BackgroundMetrics | null>(null);
-  const pauseTimer = useRef<number | undefined>(undefined);
   const leftScroll = useMotionValue(0);
   const rightScroll = useMotionValue(-112);
   const wrapDistance = useRef(112);
   const scrollRate = useRef(1);
   const targetScrollRate = useRef(1);
+  const calmRef = useRef(calm);
+
+  useEffect(() => {
+    calmRef.current = calm;
+    targetScrollRate.current = calm ? 0 : 1;
+  }, [calm]);
 
   useEffect(() => {
     const previousColor = document.body.style.backgroundColor;
@@ -154,6 +165,15 @@ export default function Background() {
     rightScroll.set(rightProgress * metrics.pitch);
   }, [leftScroll, metrics, rightScroll]);
 
+  // Wider than the layer by EDGE_ITEMS logos on each side. Shifting left by
+  // whole logos keeps every logo exactly where it was.
+  const trackSize = metrics
+    ? {
+        width: `calc(100% + ${metrics.pitch * EDGE_ITEMS * 2}px)`,
+        marginLeft: -metrics.pitch * EDGE_ITEMS,
+      }
+    : { width: "100%" };
+
   const imgRow = React.useMemo(() => {
     if (!metrics) {
       return null;
@@ -171,6 +191,9 @@ export default function Background() {
 
   useEffect(() => {
     const update = (event: MouseEvent) => {
+      if (calmRef.current) {
+        return;
+      }
       setX((event.clientX - window.innerWidth / 2) / 50);
       setY((event.clientY - window.innerHeight / 2) / 50);
     };
@@ -182,7 +205,7 @@ export default function Background() {
   }, []);
 
   useAnimationFrame((_time, delta) => {
-    const easingDuration = targetScrollRate.current === 0 ? 180 : 220;
+    const easingDuration = targetScrollRate.current === 0 ? 500 : 600;
     const easingFactor = 1 - Math.exp((-5 * delta) / easingDuration);
     const nextRate =
       scrollRate.current +
@@ -207,7 +230,11 @@ export default function Background() {
   return (
     <div aria-hidden="true">
       <div className="opacity-[0.50] absolute" id="noise"></div>
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div
+        className={`fixed inset-0 overflow-hidden pointer-events-none transition-opacity duration-700 ease-[var(--ease-out)] ${
+          calm ? "opacity-15" : ""
+        }`}
+      >
         <div
           className="absolute inset-0"
           style={{ transform: "translate(-17.5%, -15.5556%) rotate(-12deg)" }}
@@ -223,8 +250,8 @@ export default function Background() {
             }}
           >
             <motion.div
-              className="w-full flex flex-wrap"
-              style={{ x: leftScroll }}
+              className="flex flex-wrap"
+              style={{ x: leftScroll, ...trackSize }}
             >
               {imgRow}
             </motion.div>
@@ -240,8 +267,8 @@ export default function Background() {
             }}
           >
             <motion.div
-              className="w-full flex flex-wrap"
-              style={{ x: rightScroll }}
+              className="flex flex-wrap"
+              style={{ x: rightScroll, ...trackSize }}
             >
               {imgRow}
             </motion.div>

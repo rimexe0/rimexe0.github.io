@@ -1,13 +1,15 @@
 import ItemsCard from "@/components/ItemsCard";
 import IntroMotion from "./intro-motion";
 import Logo from "@/components/logo";
-import FpsMeter from "./fps-meter";
+import BlogCard from "@/components/BlogCard";
+import { getPosts } from "@/lib/posts";
 import {
   ItemsCardContent,
   ItemsCardLink,
   ItemsCardTech,
 } from "@/components/ItemsCard";
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
   return (
     <div className="min-h-screen ">
       <IntroMotion />
@@ -18,9 +20,6 @@ export default function Home() {
             <Logo />
           </span>
         </h1>
-        <div className="flex justify-center">
-          <FpsMeter />
-        </div>
       </div>
       <div className="flex justify-evenly flex-wrap ">
         <div
@@ -79,7 +78,7 @@ export default function Home() {
               <div>
                 <ItemsCardLink
                   title="preview"
-                  link="https://ducked-up-chat-desktop.vercel.app"
+                  link="https://duckedup.rime.cyou/"
                   className="bg-black border-[1.5px] border-black text-white"
                 />
               </div>
@@ -159,6 +158,9 @@ export default function Home() {
               </div>
             </ItemsCardContent>
           </ItemsCard>
+        </div>
+        <div id="blogpart" className="homepage-entry mb-10">
+          <BlogCard posts={posts.slice(0, 3)} home />
         </div>
         <div id="aboutpart" className="homepage-entry mb-10">
           <ItemsCard title="About" number={2}>

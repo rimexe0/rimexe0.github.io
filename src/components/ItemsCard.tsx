@@ -1,17 +1,41 @@
 "use client";
 
-import React from "react";
+import React, { ViewTransition } from "react";
 import { generateColor } from "./helpers/helping";
 import { motion } from "motion/react";
-const ItemsCard = ({ title, children, number }: any) => {
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { blurBehindMorph, morphsIntoCard } from "@/lib/morph-blur";
+// Cards with the same name on two pages morph into each other.
+// The title is an <h2> unless the page needs it as its main <h1>.
+const ItemsCard = ({
+  title,
+  children,
+  number,
+  className,
+  action,
+  lead,
+  name,
+  titleAs: Title = "h2",
+}: any) => {
+  const transitionName =
+    name ?? "card-" + String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return (
-    <div
-      className="
-      
+    <ViewTransition
+      name={transitionName}
+      share="morph"
+      default="none"
+      onShare={(instance) =>
+        blurBehindMorph(instance, morphsIntoCard(instance) ? "none" : "out")
+      }
+    >
+      <div
+        className={cn(
+          `
      card-shell
      min-h-[5rem]
      w-[20rem]
-     border-black
+     border-ink
      border-2
      border-dashed
      pt-3
@@ -19,49 +43,72 @@ const ItemsCard = ({ title, children, number }: any) => {
      flex-col
      transition-all
      backdrop-blur
-     "
-      style={{
-        background: generateColor(title),
-        boxShadow: "10px 10px 0px 0px rgba(0,0,0,0.75)",
-      }}
-    >
-      <h2 className="text-3xl px-3 font-semibold  text-black">{title}</h2>
-      <div className="flex flex-col">{children}</div>
-    </div>
+     `,
+          className
+        )}
+        style={{
+          background: generateColor(title),
+        }}
+        data-vt={transitionName}
+      >
+        <div className="flex items-center justify-between px-3">
+          <div className="flex items-center gap-2">
+            {lead}
+            <Title className="text-3xl font-semibold  text-ink">{title}</Title>
+          </div>
+          {action}
+        </div>
+        <div className="flex flex-col">{children}</div>
+      </div>
+    </ViewTransition>
   );
 };
 export const ItemsCardContent = ({ title, desc, children, number }: any) => {
   return (
     <motion.div
-      className="my-2  text-black border-0 "
+      className="my-2  text-ink border-0 "
       whileHover={{
         scale: 1.01,
         boxShadow: "10px 10px 0px 0px rgba(0,0,0,0.75)",
-        border: "2px dashed black",
-        transition: { duration: 0.3 },
+        border: "2px dashed var(--color-ink)",
+        transition: { duration: 0.3, ease: [0.019, 0.791, 0.352, 1.009] },
       }}
     >
-      <div className="card-entry-content mx-1 text-black">
-        <h4 className="text-xl text-black text-nowrap">{title}</h4>
+      <div className="card-entry-content mx-1 text-ink">
+        <h4 className="text-xl text-ink text-nowrap">{title}</h4>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>
     </motion.div>
   );
 };
-export const ItemsCardLink = ({ title, link, className, rainbow = false }: any) => {
+export const ItemsCardLink = ({
+  title,
+  link,
+  className,
+  rainbow = false,
+  internal = false,
+  onClick,
+}: any) => {
+  const linkClassName =
+    "p-1  rounded-tl-md rounded-br-md mx-0.5 transition-shadow hover:shadow-md text-xs " +
+    className;
+  const content = rainbow ? (
+    <span className="rainbow-scroll-right">{title}</span>
+  ) : (
+    title
+  );
   return (
     <div>
-      <a
-        className={
-          "p-1  rounded-tl-md rounded-br-md mx-0.5 transition-shadow hover:shadow-md text-xs " +
-          className
-        }
-        target="_blank"
-        href={link}
-      >
-        {rainbow ? <span className="rainbow-scroll-right">{title}</span> : title}
-      </a>
+      {internal ? (
+        <Link className={linkClassName} href={link} onClick={onClick}>
+          {content}
+        </Link>
+      ) : (
+        <a className={linkClassName} target="_blank" href={link}>
+          {content}
+        </a>
+      )}
     </div>
   );
 };
