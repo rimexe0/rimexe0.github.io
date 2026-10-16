@@ -6,6 +6,7 @@ import { CloseOnOutside } from "@/components/go-back";
 
 export const metadata: Metadata = {
   title: "blog - rime",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function Blog() {
