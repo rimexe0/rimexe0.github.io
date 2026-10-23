@@ -5,8 +5,14 @@ import IntroMotion from "../intro-motion";
 import { CloseOnOutside } from "@/components/go-back";
 
 export const metadata: Metadata = {
-  title: "blog - rime",
+  title: "blog",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    type: "website",
+    url: "/blog",
+    title: "blog - rime",
+    images: ["/og.jpg"],
+  },
 };
 
 export default async function Blog() {

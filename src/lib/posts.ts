@@ -15,21 +15,24 @@ const POSTS_DIR = path.join(process.cwd(), "src/content/blog");
 
 export async function getPost(slug: string) {
   const post = await import(`@/content/blog/${slug}.mdx`);
+  const source = fs.readFileSync(path.join(POSTS_DIR, `${slug}.mdx`), "utf8");
   return {
     Content: post.default as MDXContent,
     meta: post.meta as PostMeta,
+    excerpt: getExcerpt(source),
   };
 }
 
 export async function getPosts(): Promise<Post[]> {
-  const files = fs.readdirSync(POSTS_DIR).filter((file) => file.endsWith(".mdx"));
+  const files = fs
+    .readdirSync(POSTS_DIR)
+    .filter((file) => file.endsWith(".mdx"));
   const posts = await Promise.all(
     files.map(async (file) => {
       const slug = file.replace(/\.mdx$/, "");
-      const { meta } = await getPost(slug);
-      const source = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
-      return { ...meta, slug, excerpt: getExcerpt(source) };
-    })
+      const { meta, excerpt } = await getPost(slug);
+      return { ...meta, slug, excerpt };
+    }),
   );
   return posts.sort((a, b) => b.date.localeCompare(a.date));
 }

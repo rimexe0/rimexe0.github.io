@@ -5,16 +5,17 @@ const siteUrl = "https://rime.cyou";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
+  const newest = posts[0] ? new Date(posts[0].date) : new Date();
   return [
     {
       url: siteUrl,
-      lastModified: new Date(),
+      lastModified: newest,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${siteUrl}/blog`,
-      lastModified: posts[0] ? new Date(posts[0].date) : new Date(),
+      lastModified: newest,
       changeFrequency: "weekly",
       priority: 0.8,
     },

@@ -20,14 +20,14 @@ const siteDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: siteTitle,
+  title: { default: siteTitle, template: "%s - rime" },
   description: siteDescription,
   authors: [{ name: "rime", url: siteUrl }],
   creator: "rime",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    type: "profile",
+    type: "website",
     url: "/",
     siteName: "rime",
     title: siteTitle,

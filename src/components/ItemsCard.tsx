@@ -75,7 +75,7 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
       }}
     >
       <div className="card-entry-content mx-1 text-ink">
-        <h4 className="text-xl text-ink text-nowrap">{title}</h4>
+        <h3 className="text-xl text-ink text-nowrap">{title}</h3>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>

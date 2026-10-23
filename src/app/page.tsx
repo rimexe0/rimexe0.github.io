@@ -14,12 +14,12 @@ export default async function Home() {
     <div className="min-h-screen ">
       <IntroMotion />
       <div id="logopart" className="mx-auto w-3 pt-4">
-        <h1 className="logo flex justify-center">
-          <span className="sr-only">rimexe, software developer</span>
-          <span className="text-wrapper  " aria-hidden="true">
+        <h1 className="sr-only">rimexe, software developer</h1>
+        <div className="logo flex justify-center" aria-hidden="true">
+          <span className="text-wrapper  ">
             <Logo />
           </span>
-        </h1>
+        </div>
       </div>
       <div className="flex justify-evenly flex-wrap ">
         <div
