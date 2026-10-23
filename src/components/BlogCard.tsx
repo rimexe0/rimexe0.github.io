@@ -19,6 +19,7 @@ export default function BlogCard({
   return (
     <ItemsCard
       title="Blog"
+      titleAs={home ? "h2" : "h1"}
       className={home ? "" : "w-auto"}
       action={
         home && (

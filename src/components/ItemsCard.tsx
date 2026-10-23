@@ -7,7 +7,17 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { blurBehindMorph, morphsIntoCard } from "@/lib/morph-blur";
 // Cards with the same name on two pages morph into each other.
-const ItemsCard = ({ title, children, number, className, action, lead, name }: any) => {
+// The title is an <h2> unless the page needs it as its main <h1>.
+const ItemsCard = ({
+  title,
+  children,
+  number,
+  className,
+  action,
+  lead,
+  name,
+  titleAs: Title = "h2",
+}: any) => {
   const transitionName =
     name ?? "card-" + String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return (
@@ -44,7 +54,7 @@ const ItemsCard = ({ title, children, number, className, action, lead, name }: a
         <div className="flex items-center justify-between px-3">
           <div className="flex items-center gap-2">
             {lead}
-            <h1 className="text-3xl font-semibold  text-ink">{title}</h1>
+            <Title className="text-3xl font-semibold  text-ink">{title}</Title>
           </div>
           {action}
         </div>
@@ -65,7 +75,7 @@ export const ItemsCardContent = ({ title, desc, children, number }: any) => {
       }}
     >
       <div className="card-entry-content mx-1 text-ink">
-        <h4 className="text-xl text-ink text-nowrap">{title}</h4>
+        <h3 className="text-xl text-ink text-nowrap">{title}</h3>
         <p className="">{desc}</p>
         <div className="flex my-2 justify-between">{children}</div>
       </div>

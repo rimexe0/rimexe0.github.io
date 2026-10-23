@@ -15,15 +15,50 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const { meta } = await getPost(slug);
-  return { title: `${meta.title} - rime`, description: meta.desc };
+  const { meta, excerpt } = await getPost(slug);
+  const description = meta.desc ?? excerpt;
+  return {
+    title: meta.title,
+    description,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: "article",
+      url: `/blog/${slug}`,
+      title: meta.title,
+      description,
+      publishedTime: meta.date,
+      authors: ["rime"],
+      images: ["/og.jpg"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description,
+      images: ["/og.jpg"],
+    },
+  };
 }
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const { Content, meta } = await getPost(slug);
+  const { Content, meta, excerpt } = await getPost(slug);
+  const postJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: meta.title,
+    description: meta.desc ?? excerpt,
+    datePublished: meta.date,
+    author: { "@type": "Person", name: "rime", url: "https://rime.cyou" },
+    url: `https://rime.cyou/blog/${slug}`,
+  };
   return (
     <div className="pt-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(postJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <IntroMotion />
       <CloseOnOutside fallback="/blog" />
       <div className="flex justify-center">
@@ -31,6 +66,7 @@ export default async function PostPage({ params }: Props) {
           <ItemsCard
             title={meta.title}
             name={`post-${slug}`}
+            titleAs="h1"
             className="w-auto"
             lead={<BackButton fallback="/blog" />}
             action={

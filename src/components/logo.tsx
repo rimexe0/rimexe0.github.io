@@ -3,6 +3,7 @@ export default function Logo() {
     <div>
       <div className="relative  mb-10">
         <span
+          aria-hidden="true"
           className="center letters flex text-8xl  transition-all text-black absolute"
         >
           <span className="letter ">r</span>
