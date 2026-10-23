@@ -6,11 +6,13 @@ import { CloseOnOutside } from "@/components/go-back";
 
 export const metadata: Metadata = {
   title: "blog",
+  description: "Posts by rime.",
   alternates: { canonical: "/blog" },
   openGraph: {
     type: "website",
     url: "/blog",
     title: "blog - rime",
+    description: "Posts by rime.",
     images: ["/og.jpg"],
   },
 };
