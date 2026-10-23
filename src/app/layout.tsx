@@ -14,17 +14,16 @@ import { cn } from "@/lib/utils";
 import { generateColor } from "@/components/helpers/helping";
 
 const siteUrl = "https://rime.cyou";
-const fullName = "Emir OZTURK";
-const siteTitle = `${fullName} (rime) | Software Developer`;
+const siteTitle = "rime | Software Developer";
 const siteDescription =
-  "Emir OZTURK (rime / rimexe0) is a software developer from Türkiye building Rust, React and Tauri apps: DuckedUpChat, Meva, not., Githubers and the Wooter Hall-effect keypad.";
+  "rime's projects and blog. Software developer building Rust, React and Tauri apps.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
-  authors: [{ name: fullName, url: siteUrl }],
-  creator: fullName,
+  authors: [{ name: "rime", url: siteUrl }],
+  creator: "rime",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 675,
-        alt: "rime - Emir OZTURK, software developer",
+        alt: "rime - software developer",
       },
     ],
   },
@@ -53,12 +52,11 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: fullName,
-  alternateName: ["rime", "rimexe", "rimexe0"],
+  name: "rime",
+  alternateName: ["rimexe", "rimexe0"],
   url: siteUrl,
   jobTitle: "Software Developer",
   description: siteDescription,
-  address: { "@type": "PostalAddress", addressCountry: "TR" },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Izmir University of Economics",
